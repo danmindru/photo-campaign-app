@@ -3,7 +3,7 @@
 	"version": "0.2.2",
 	"description": "Fullstack JavaScript with MongoDB, Express, AngularJS, and Node.js.",
 	"dependencies": {
-		"bootstrap": "~3",
+		"bootstrap": "*",
 		"angular": "~1.2",
 		"angular-cookies": "~1.2",
 		"angular-resource": "~1.2",

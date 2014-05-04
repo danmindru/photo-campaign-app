@@ -37,22 +37,28 @@ var UserSchema = new Schema({
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your last name']
 	},
-	displayName: {
-		type: String,
-		trim: true
-	},
 	email: {
 		type: String,
 		trim: true,
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your email'],
-		match: [/.+\@.+\..+/, 'Please fill a valid email address']
+		match: [/.+\@.+\..+/, 'Please fill a valid email address'],
+		unique: true
 	},
-	username: {
+	bio: {
 		type: String,
-		unique: true,
-		required: 'Please fill in a username',
-		trim: true
+		default: ''
+	},
+	photoURL: {
+		type: String,
+		trim: true,
+		default: 'img/users/default.png',
+	},
+	level: {
+		type: String,
+		trim: true,
+		default: 'registered',
+		required: 'The user needs to belong to a campaign'
 	},
 	password: {
 		type: String,
@@ -69,11 +75,16 @@ var UserSchema = new Schema({
 	providerData: {},
 	additionalProvidersData: {},
 	updated: {
-		type: Date
+		type: Date,
+		default: Date.now
 	},
 	created: {
 		type: Date,
 		default: Date.now
+	},
+	campaign: {
+		type: Schema.ObjectId,
+		ref: 'Campaign'
 	}
 });
 

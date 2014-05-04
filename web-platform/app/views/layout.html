@@ -51,9 +51,9 @@
 </head>
 
 <body class="ng-cloak">
-	<header data-ng-include="'/modules/core/views/header.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+	<nav data-ng-include="'/modules/core/views/header.html'" class="navbar navbar-default"></nav>
 	<section class="content">
-		<section class="container">
+		<section class="container-fluid">
 			{% block content %}{% endblock %}
 		</section>
 	</section>
