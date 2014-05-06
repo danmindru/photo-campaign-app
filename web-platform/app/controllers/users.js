@@ -42,6 +42,7 @@ exports.signup = function(req, res) {
 
 	// Add missing user fields
 	user.provider = 'local';
+	user.campaignObject = req.body.campaignIdentifier;
 
 	user.save(function(err) {
 		console.log(err);
@@ -100,7 +101,7 @@ exports.update = function(req, res) {
 		// Merge existing user
 		user = _.extend(user, req.body);
 		user.updated = Date.now();
-		user.displayName = user.firstName + ' ' + user.lastName;
+		//user.displayName = user.firstName + ' ' + user.lastName;
 
 		user.save(function(err) {
 			if (err) {
@@ -192,6 +193,21 @@ exports.signout = function(req, res) {
  */
 exports.me = function(req, res) {
 	res.jsonp(req.user || null);
+};
+
+/*
+ * List users
+ */
+exports.list = function(req, res){
+	User.find().sort('-created').populate('campaignObject', 'identifier').exec(function(err, users){
+		if(err){
+			res.render('error', {
+				status: 500
+			});
+		} else {
+			res.jsonp(users);
+		}
+	});
 };
 
 

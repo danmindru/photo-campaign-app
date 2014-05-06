@@ -1,0 +1,45 @@
+<section class="row-fluid" data-ng-controller="CampaignsController" data-ng-init="findOne()">
+    <h3>Edit Campaign</h3>
+    <hr/>
+    <div class="col-xs-12 col-md-2">
+        <form class="form-horizontal" data-ng-submit="update()">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="title">Title</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="campaign.title" id="title" class="form-control" placeholder="Title" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="rules">Rules:</label>
+                    <textarea id="rules" name="rules" class="form-control" placeholder="Campaign rules" data-ng-model="campaign.rules"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" class="form-control" placeholder="Campaign description" data-ng-model="campaign.description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="identifier">ID</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="campaign.identifier" id="identifier" class="form-control" placeholder="ID" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="campaignStart">Start Date</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="campaign.campaignStart" id="campaignStart" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="campaignEnd">End Date</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="campaign.campaignEnd" id="campaignEnd" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Update campaign">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

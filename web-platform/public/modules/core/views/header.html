@@ -10,6 +10,12 @@
 	</div>
 	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
 		<ul class="nav navbar-nav" data-ng-show="authentication.user">
+			<li ui-route="/campaigns" ng-class="{active: $uiRoute}">
+				<a href="/#!/campaigns">Campaigns</a>
+			</li>
+			<li ui-route="/users" ng-class="{active: $uiRoute}">
+				<a href="/#!/users">Users</a>
+			</li>
 			<li data-ng-repeat="item in menu" data-ng-show="authentication.user" ui-route="{{item.uiRoute}}" ng-class="{active: $uiRoute}">
 				<a href="/#!/{{item.link}}">{{item.title}}</a>
 			</li>

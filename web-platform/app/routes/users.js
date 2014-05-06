@@ -8,6 +8,7 @@ var passport = require('passport');
 module.exports = function(app) {
 	// User Routes
 	var users = require('../../app/controllers/users');
+	app.get('/users', users.requiresLogin, users.list);
 	app.get('/users/me', users.me);
 	app.put('/users', users.update);
 	app.post('/users/password', users.changePassword);

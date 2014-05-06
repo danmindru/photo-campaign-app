@@ -4,7 +4,6 @@ var passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy,
 	User = require('mongoose').model('User');
 
-
 module.exports = function() {
 	// Use local strategy
 	passport.use(new LocalStrategy({
@@ -30,7 +29,8 @@ module.exports = function() {
 				}
 				
 				return done(null, user);
-			});
+			}).populate('campaignObject', 'identifier');
+			//populate the campaign ID
 		}
 	));
 };

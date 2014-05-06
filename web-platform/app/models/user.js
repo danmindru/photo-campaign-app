@@ -57,7 +57,7 @@ var UserSchema = new Schema({
 	level: {
 		type: String,
 		trim: true,
-		default: 'registered',
+		default: 'admin',
 		required: 'The user needs to belong to a campaign'
 	},
 	password: {
@@ -82,7 +82,7 @@ var UserSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	campaign: {
+	campaignObject: {
 		type: Schema.ObjectId,
 		ref: 'Campaign'
 	}
