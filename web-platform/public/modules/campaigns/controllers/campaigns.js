@@ -67,8 +67,8 @@ angular.module('campaigns').controller('CampaignsController', ['$scope', '$state
                 campaignId: $stateParams.campaignId
             }, function(campaign) {
                 //filters SHOULD NOT be in single quotes
-                campaign.campaignStart = $filter("date")(campaign.campaignStart, 'yyyy-MM-dd');
-                campaign.campaignEnd = $filter("date")(campaign.campaignEnd, 'yyyy-MM-dd');
+                campaign.campaignStart = $filter('"date"')(campaign.campaignStart, 'yyyy-MM-dd');
+                campaign.campaignEnd = $filter('"date"')(campaign.campaignEnd, 'yyyy-MM-dd');
 
                 $scope.campaign = campaign;
             });

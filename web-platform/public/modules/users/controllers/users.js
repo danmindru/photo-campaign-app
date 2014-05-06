@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('users').controller('UsersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Users', function($scope, $stateParams, $location, Authentication, Users){
 		$scope.authentication = Authentication;
 
@@ -5,6 +7,6 @@ angular.module('users').controller('UsersController', ['$scope', '$stateParams',
 			Users.query(function(users){
 				$scope.users = users;
 			});
-		}
+		};
 	}
 ]);
