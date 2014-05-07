@@ -1,0 +1,11 @@
+<section data-ng-controller="PostsController" data-ng-init="findOne()">
+	<h3>{{post.title}}</h3>
+	<hr/>
+	<h4>Description</h4>
+	<p>{{post.description}}</p>
+	<h4>Created</h4>
+	<p>{{post.created | date:'medium'}}</p>
+	<hr/>
+	<!-- delete is only shown if you are logged in. Delete should be shown only for the users that created the post and super - admin, right now any logged in user can delete (aka everybody is an admin)-->
+	<a href="/#!/" class="btn btn-danger" data-ng-show="authentication.user" data-ng-click="remove()">Delete</a>
+</section>
