@@ -34,6 +34,10 @@ var CampaignSchema = new Schema({
 	campaignStart: {
 		type: Date,
 		default: Date.now
+	},
+	created: {
+		type: Date,
+		default: Date.now
 	}
 });
 

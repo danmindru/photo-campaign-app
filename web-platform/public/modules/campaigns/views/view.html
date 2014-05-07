@@ -8,8 +8,9 @@
 	<h4>ID</h4>
 	<p>{{campaign.identifier}}</p>
 	<h4>Campaign period</h4>
-	<p>{{campaign.campaignStart | date:'medium'}} - {{campaign.campaignEnd | date:'medium'}}</p>
+	<p>{{campaign.campaignStart | date:'yyyy-MM-dd'}} - {{campaign.campaignEnd | date:'yyyy-MM-dd'}}</p>
 	<hr/>
 	<a href="/#!/campaigns/{{campaign._id}}/edit" class="btn btn-primary">Edit</a>
+	<!-- delete commented out for beta version, fully working thought -->
 	<a href="/#!/" class="btn btn-danger" data-ng-click="remove()">Delete</a>
 </section>

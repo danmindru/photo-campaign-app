@@ -1,9 +1,28 @@
 <section class="row-fluid" data-ng-controller="UsersController" data-ng-init="find()">
 	<h3>User list</h3>
 	<hr/>
+	<div class="form-group">
+		<span data-ng-show="error" class="text-danger">
+				<strong>{{error}}</strong>
+		</span>
+		<span data-ng-show="success" class="text-success">
+				<strong>{{success}}</strong>
+		</span>
+	</div>
+
 	<div class="list-group">
 	    <div data-ng-repeat="user in users" class="list-group-item">
-	        <small class="list-group-item-text">Registered: {{user.created | date:'medium'}} / <strong>CampaignID: {{user.campaignObject.identifier}}</strong></small>
+	        <small class="list-group-item-text">Registered: {{user.created | date:'medium'}} 
+	        	<span data-ng-show="user.campaignObject.identifier">
+	        		/ <strong>CampaignID: {{user.campaignObject.identifier}}</strong>
+	        	</span><br/>
+	        	<span data-ng-hide="user.campaignObject.identifier">
+							<i>This user is not assigned to any campaign. In order for a user to post, a campaign needs to be created and the user assigned to it.</i>
+							<span class="btn btn-success btn-xs" data-ng-click="assignCampaign(user)">
+								Assign to campaign
+							</span>    		
+	        	</span>
+	        </small>
 	        <br/><br/>
 	        <h4 class="list-group-item-heading">{{user.firstName}} {{user.lastName}}</h4>
 	        <p class="list-group-item-text"><a target="_blank" href="mailto:{{user.email}}">{{user.email}}</a></p>

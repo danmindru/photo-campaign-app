@@ -58,7 +58,6 @@ var UserSchema = new Schema({
 		type: String,
 		trim: true,
 		default: 'admin',
-		required: 'The user needs to belong to a campaign'
 	},
 	password: {
 		type: String,

@@ -67,9 +67,11 @@ angular.module('campaigns').controller('CampaignsController', ['$scope', '$state
                 campaignId: $stateParams.campaignId
             }, function(campaign) {
                 //filters SHOULD NOT be in single quotes
-                campaign.campaignStart = $filter('"date"')(campaign.campaignStart, 'yyyy-MM-dd');
-                campaign.campaignEnd = $filter('"date"')(campaign.campaignEnd, 'yyyy-MM-dd');
-
+                //have to ignore this in jshint because it will issue warnings for use of double quotes..
+                /* jshint ignore:start */
+                campaign.campaignStart = $filter("date")(campaign.campaignStart, 'yyyy-MM-dd');
+                campaign.campaignEnd = $filter("date")(campaign.campaignEnd, 'yyyy-MM-dd');
+                /* jshint ignore:end */
                 $scope.campaign = campaign;
             });
         };

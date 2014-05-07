@@ -4,8 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema,
-	ObjectId = mongoose.Schema.Types.ObjectId;
+	Schema = mongoose.Schema;
 
 /**
  * Post Schema
@@ -24,7 +23,7 @@ var PostSchema = new Schema({
 		trim: true,
 		default: ''
 	},
-		created: {
+	created: {
 		type: Date,
 		default: Date.now
 	},
@@ -34,7 +33,8 @@ var PostSchema = new Schema({
 			max: 10
 		},
 		userId: {
-			type: ObjectId
+			type: Schema.ObjectId,
+			ref: 'User'
 		}
 	}],
 	judgeRating: [{
@@ -43,12 +43,17 @@ var PostSchema = new Schema({
 			max: 10
 		},
 		userId: {
-			type: ObjectId
+			type:Schema.ObjectId,
+			ref: 'User'
 		}
 	}],
-	user: {
+	owner: {
 		type: Schema.ObjectId,
 		ref: 'User'
+	},
+	campaignObject: {
+		type: Schema.ObjectId,
+		ref: 'Campaign'
 	}
 });
 

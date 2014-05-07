@@ -18,6 +18,9 @@ module.exports = function(app) {
 	app.post('/auth/signin', users.signin);
 	app.get('/auth/signout', users.signout);
 
+	// Campaign api
+	app.put('/users/assign-campaign/:userId', users.requiresLogin, users.assignCampaign);
+
 	// Finish by binding the user middleware
 	app.param('userId', users.userByID);
 };

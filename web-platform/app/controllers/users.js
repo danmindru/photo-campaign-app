@@ -6,7 +6,20 @@
 var mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
+	Campaign = mongoose.model('Campaign'),
 	_ = require('lodash');
+
+/**
+ * Get current campaign id
+ */
+var getCurrentCampaignId = function(next){
+	Campaign.findOne().sort('-created').exec(function(err, campaign) {
+			if(err) return next(err);
+			if(!campaign) return next('Error! No campaign to assign to');
+			return next(false, campaign._id);
+	});
+};
+
 
 /**
  * Get the error message from error object
@@ -42,27 +55,39 @@ exports.signup = function(req, res) {
 
 	// Add missing user fields
 	user.provider = 'local';
-	user.campaignObject = req.body.campaignIdentifier;
+	//don't hardcore! -> assign campaign ID to user removed (hardcoded in angular module: users, controller: authentication, method: signup), but might be an option for beta relase..
+	//user.campaignObject = req.body.campaignIdentifier;
 
-	user.save(function(err) {
-		console.log(err);
-		if (err) {
-			return res.send(400, {
-				message: getErrorMessage(err)
-			});
-		} else {
-			// Remove sensitive data before login
-			user.password = undefined;
-			user.salt = undefined;
+	//when the user signs up, look for a campaign, which is the latest one sorted by created
+	//if there is no campaign created yet, the user gets nothing, but can be assigned to a campaign later
+	//a user cannot post in that campaign if he is not assigned to it and cannot post at all if he is not assigned to any campaign
 
-			req.login(user, function(err) {
-				if (err) {
-					res.send(400, err);
-				} else {
-					res.jsonp(user);
-				}
-			});
+	getCurrentCampaignId(function(err, campaignObjectId){
+		if(!err){
+			//can assign the user to a campaign
+			user.campaignObject = campaignObjectId;
 		}
+
+		//save user
+		user.save(function(err) {
+			if (err) {
+				return res.send(400, {
+					message: getErrorMessage(err)
+				});
+			} else {
+				// Remove sensitive data before login
+				user.password = undefined;
+				user.salt = undefined;
+
+				req.login(user, function(err) {
+					if (err) {
+						res.send(400, err);
+					} else {
+						res.jsonp(user);
+					}
+				});
+			}
+		});
 	});
 };
 
@@ -121,6 +146,62 @@ exports.update = function(req, res) {
 	} else {
 		res.send(400, {
 			message: 'User is not signed in'
+		});
+	}
+};
+
+/**
+ *	User campaign update
+ */
+exports.assignCampaign = function(req, res){
+	var userToUpdate = req.params.userId;
+
+	if(userToUpdate){
+		//get current campaign id if exists
+		getCurrentCampaignId(function(err, campaignObjectId){
+			if(!err){
+				User.findById(userToUpdate, function(err, user) {
+					if(!err && user){
+						user.updated = Date.now();
+						user.campaignObject = campaignObjectId;
+
+						//update user with new campaign
+						user.save(function(err) {
+							if (err) {
+								return res.send(400, {
+									message: getErrorMessage(err)
+								});
+							} else {
+								req.login(user, function(err) {
+									if (err) {
+										res.send(400, err);
+									} else {
+										res.send({
+											message: 'User ' + user.email + ' successfully assigned to campaign (DBID): ' + campaignObjectId
+										});
+									}
+								});
+							}
+						});
+					}
+					else{
+						//user not found
+						res.send(400, {
+							message: 'User is not found'
+						});
+					}
+				});
+			} else {
+				//problems reading the campaign id
+				return res.send(400, {
+					message: err
+				});
+			}
+		});
+	}
+	else{
+		return res.send(500, {
+			message: 'Invalid user id provided'
 		});
 	}
 };

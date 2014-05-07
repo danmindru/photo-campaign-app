@@ -5,6 +5,8 @@
  */
 var mongoose = require('mongoose'),
 	Post = mongoose.model('Post'),
+	User = mongoose.model('User'),
+	Campaign = mongoose.model('Campaign'),
 	_ = require('lodash');
 
 /**
@@ -12,17 +14,51 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 	var post = new Post(req.body);
+	post.owner = req.user._id;
 
-	post.save(function(err) {
-		if (err) {
-			return res.send('/posts', {
-				errors: err.errors,
-				post: post
+	//get user id from DB
+	User.findById(post.owner, function(err, user) {
+		if(!err && user){
+			if(user.campaignObject){
+			//if campaign still exists (and active - future impl.)
+				Campaign.findById(user.campaignObject, function(err, campaign){
+					if(!err && campaign){
+						post.save(function(err) {
+							if (err) {
+								return res.send('/posts', {
+									errors: err.errors,
+									post: post
+								});
+							} else {
+								res.jsonp(post);
+							}
+						});
+					} else {
+						return res.send(500, {
+							errors: 'The user is assigned to a campaign that has been deleted or deactivated, therefore it cannot post.'
+						});
+					}
+				});
+			} else {
+				return res.send(500, {
+					errors: 'User must belong to a campaign to post'
+				});
+			}
+		}
+		else{
+			//user not found
+			res.send(400, {
+				message: 'User is not found'
 			});
-		} else {
-			res.jsonp(post);
 		}
 	});
+};
+
+/**
+ * Read a post
+ */
+exports.read = function(req, res) {
+	res.jsonp(req.post);
 };
 
 /**
