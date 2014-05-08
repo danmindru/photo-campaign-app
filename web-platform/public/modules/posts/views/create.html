@@ -1,13 +1,14 @@
 <section class="row-fluid" data-ng-controller="PostsController">
-    <h3>New Campaign</h3>
+    <h3>New Post</h3>
     <hr/>
     <div class="col-xs-12 col-md-2">
-        <form class="form-horizontal" data-ng-submit="create()">
+        <!-- previous form action data-ng-submit="create()" -->
+        <form class="form-horizontal" data-ng-show="authentication.user" ng-upload="uploadComplete(content)" action="/posts" enctype='multipart/form-data'>
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="title">Title</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="post.title" id="title" class="form-control" placeholder="Title" required>
+                        <input type="text" id="title" name="title" class="form-control" placeholder="Title" data-ng-model="post.title" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -15,7 +16,13 @@
                     <textarea id="description" name="description" class="form-control" placeholder="Post description" data-ng-model="post.description"></textarea>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Create post">
+                   <input type="file" name="postPhoto" id="postPhoto" required>
+                </div>
+                <div class="form-group">
+                    <hr/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Create post" ng-disabled="$isLoading">
                 </div>
                 <div class="form-group">
                     <span data-ng-show="error" class="text-danger">
@@ -24,5 +31,9 @@
                 </div>
             </fieldset>
         </form>
+
+        <span data-ng-hide="authentication.user">
+        You must be logged in to post.
+        </span>
     </div>
 </section>

@@ -29,8 +29,7 @@ module.exports = function() {
 				}
 				
 				return done(null, user);
-			}).populate('campaignObject', 'identifier');
-			//populate the campaign ID
+			});
 		}
 	));
 };

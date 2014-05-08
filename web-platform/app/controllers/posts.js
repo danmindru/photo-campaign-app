@@ -7,51 +7,87 @@ var mongoose = require('mongoose'),
 	Post = mongoose.model('Post'),
 	User = mongoose.model('User'),
 	Campaign = mongoose.model('Campaign'),
+	fs = require('fs'),
 	_ = require('lodash');
 
 /**
  * Create a post
  */
 exports.create = function(req, res) {
-	var post = new Post(req.body);
-	post.owner = req.user._id;
+	//read post data
+	var postData = {},
+	fileUrl = './public/uploads/',
+	uploadMessage = '';
 
-	//get user id from DB
-	User.findById(post.owner, function(err, user) {
-		if(!err && user){
-			if(user.campaignObject){
-			//if campaign still exists (and active - future impl.)
-				Campaign.findById(user.campaignObject, function(err, campaign){
-					if(!err && campaign){
-						post.save(function(err) {
-							if (err) {
-								return res.send('/posts', {
-									errors: err.errors,
-									post: post
-								});
-							} else {
-								res.jsonp(post);
-							}
-						});
-					} else {
-						return res.send(500, {
-							errors: 'The user is assigned to a campaign that has been deleted or deactivated, therefore it cannot post.'
+	if (!req.files.postPhoto || req.files.postPhoto.size === 0) {
+    uploadMessage = 'No file uploaded at ' + new Date().toString();
+    res.send(400, {error:uploadMessage});
+  } else {
+    var file = req.files.postPhoto;
+    //append filename and date to file upload
+    fileUrl += new Date().getTime().toString() + file.name;
+
+   	fs.rename(file.path, fileUrl, function(err) {
+		    if(err) {
+					return res.send({
+		      	error: 'Error while moving the file: ' + err
+					});
+		    } else {
+				uploadMessage = '<b>"' + file.name + '"<b> uploaded to the server at ' + new Date().toString();
+        
+        //store data from req params
+				postData.title = req.param('title');
+				postData.description = req.param('description');
+				postData.photoURL = fileUrl.replace('./public/', '');
+
+				var post = new Post(postData);
+
+				//added missing fields
+				post.owner = req.user._id;
+
+				//get user id from DB
+				User.findById(post.owner, function(err, user) {
+					if(!err && user){
+						if(user.campaignObject){
+						//if campaign still exists (and active - future impl.)
+							Campaign.findById(user.campaignObject, function(err, campaign){
+								if(!err && campaign){
+									//if campaign found, assing it to the post
+									post.campaignObject = campaign._id;
+
+									//finally save post
+									post.save(function(err) {
+										if (err) {
+											return res.send('/posts', {
+												error: err.errors,
+												post: post
+											});
+										} else {
+											return res.send(200, {message: 'Posted!'});
+										}
+									});
+								} else {
+									return res.send(500, {
+										error: 'The user is assigned to a campaign that has been deleted or deactivated, therefore it cannot post.'
+									});
+								}
+							});
+						} else {
+							return res.send(500, {
+								error: 'User must belong to a campaign to post'
+							});
+						}
+					}
+					else{
+						//user not found
+						res.send(400, {
+							error: 'User is not found'
 						});
 					}
 				});
-			} else {
-				return res.send(500, {
-					errors: 'User must belong to a campaign to post'
-				});
-			}
-		}
-		else{
-			//user not found
-			res.send(400, {
-				message: 'User is not found'
-			});
-		}
-	});
+      }            
+		});
+  }
 };
 
 /**
@@ -82,15 +118,45 @@ exports.delete = function(req, res) {
  * List post belonging to a campaign
  */
 exports.list = function(req, res) {
-	Post.find().sort('-created').exec(function(err, posts) {
-		if (err) {
-			res.render('error', {
-				status: 500
-			});
-		} else {
-			res.jsonp(posts);
-		}
-	});
+	var userCampaignObject;
+
+	if(req.user){
+		userCampaignObject = req.user.campaignObject;
+	}
+
+	//list all posts if user is not logged in
+	if(!userCampaignObject){
+		Post.find().
+		populate('campaignObject', 'identifier').
+		populate('owner', 'firstName lastName').
+		sort('-created').
+		exec(function(err, posts) {
+			if (err) {
+				res.render('error', {
+					status: 500
+				});
+			} else {
+				res.jsonp(posts);
+			}
+		});
+	} else {
+		//list posts from the campaign assigned to the logged-in user
+		Post.find({
+			campaignObject: userCampaignObject
+		}).
+		populate('campaignObject', 'identifier').
+		populate('owner', 'firstName lastName').
+		sort('-created').
+		exec(function(err, posts) {
+			if (err) {
+				res.render('error', {
+					status: 500
+				});
+			} else {
+				res.jsonp(posts);
+			}
+		});
+	}
 };
 
 /**
@@ -99,7 +165,10 @@ exports.list = function(req, res) {
 exports.postByID = function(req, res, next, id) {
 	Post.findOne({
 		_id: id
-	}).exec(function(err, post) {
+	}).
+	populate('campaignObject', 'identifier').
+	populate('owner', 'firstName lastName').
+	exec(function(err, post) {
 		if (err) return next(err);
 		if (!post) return next(new Error('Failed to load post ' + id));
 		req.post = post;

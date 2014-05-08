@@ -4,7 +4,23 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
     function($scope, $stateParams, $location, $filter, Authentication, Posts) {
         $scope.authentication = Authentication;
 
-        $scope.create = function() {
+        $scope.uploadComplete = function (content) {
+            $scope.error = null;
+
+            if(content.error){
+                $scope.error = content.error;
+            }
+            else{
+                $scope.post = '';
+                //cannot clear input type file atm..
+                
+                //redirect to view posts
+                $location.path('/posts');
+            }
+        };
+
+        //method changed to uploadComplete due to file upload..
+        /*$scope.create = function() {
             $scope.success = $scope.error = null;
 
             var post = new Posts({
@@ -22,7 +38,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
             this.post.title = '';
             this.post.description = '';
-        };
+        };*/
 
         $scope.remove = function(post) {
             if (post) {

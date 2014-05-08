@@ -73,6 +73,8 @@ module.exports = function(db) {
 	});
 
 	//  request body parsing middleware should be above methodOverride
+	//added bodyParser which uses an old version of connect to allow reading multipart form data (posts)
+	app.use(express.bodyParser());
 	app.use(express.urlencoded());
 	app.use(express.json());
 	app.use(express.methodOverride());

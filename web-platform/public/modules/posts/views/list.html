@@ -11,7 +11,11 @@
                 View Details <i class="glyphicon glyphicon-edit"></i>
             </span>
 
-            <small class="list-group-item-text">{{post.created | date:'medium'}}</small>
+            <small class="list-group-item-text">
+                {{post.created | date:'medium'}} / 
+                <strong>CampaignID: {{post.campaignObject.identifier}}</strong>
+                by <i>{{post.owner.firstName}} {{post.owner.lastName}}</i>
+            </small>
             <h4 class="list-group-item-heading">{{post.title}}</h4>
             <p class="list-group-item-text">{{post.description}}</p>
         </a>

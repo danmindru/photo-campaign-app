@@ -118,7 +118,6 @@ exports.signin = function(req, res, next) {
  * Update user details
  */
 exports.update = function(req, res) {
-	// Init Variables
 	var user = req.user;
 	var message = null;
 
@@ -131,7 +130,8 @@ exports.update = function(req, res) {
 		user.save(function(err) {
 			if (err) {
 				return res.send(400, {
-					message: getErrorMessage(err)
+					message: getErrorMessage(err),
+					error: err
 				});
 			} else {
 				req.login(user, function(err) {
@@ -273,14 +273,32 @@ exports.signout = function(req, res) {
  * Send User
  */
 exports.me = function(req, res) {
-	res.jsonp(req.user || null);
+	User.findOne({
+		_id: req.user._id
+	}).select('-password').
+	select('-salt').exec(function(err, user) {
+		if (!err && user) {
+			user.password = undefined;
+			user.salt = undefined;
+			res.jsonp(user);
+		}
+		else{
+			res.send(400, {
+				message: 'User is not found'
+			});
+		}
+	});
 };
 
 /*
  * List users
  */
 exports.list = function(req, res){
-	User.find().sort('-created').populate('campaignObject', 'identifier').exec(function(err, users){
+	User.find().sort('-created').
+		select('-password').
+		select('-salt').
+		populate('campaignObject', 'identifier').
+		exec(function(err, users){
 		if(err){
 			res.render('error', {
 				status: 500
