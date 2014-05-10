@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>335A4A1E-3193-46DE-A4BE-7E678AE95A96</string>
+	<key>IDESourceControlProjectName</key>
+	<string>photoCampaign</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EB1D2AAA-63C2-4936-8411-A362A17961C1</key>
+		<string>ssh://github.com/dandaniel/photo-campaign-app.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios-native/photoCampaign/photoCampaign.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EB1D2AAA-63C2-4936-8411-A362A17961C1</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/dandaniel/photo-campaign-app.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EB1D2AAA-63C2-4936-8411-A362A17961C1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EB1D2AAA-63C2-4936-8411-A362A17961C1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>School final project (app+web platform)</string>
+		</dict>
+	</array>
+</dict>
+</plist>
