@@ -19,6 +19,11 @@
 		4C4AE64E191CE2F000F73121 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4AE636191CE2EF00F73121 /* UIKit.framework */; };
 		4C4AE656191CE2F000F73121 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C4AE654191CE2F000F73121 /* InfoPlist.strings */; };
 		4C4AE658191CE2F000F73121 /* photoCampaignTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4AE657191CE2F000F73121 /* photoCampaignTests.m */; };
+		4C4AE662191CF00400F73121 /* mainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4AE661191CF00400F73121 /* mainStoryboard.storyboard */; };
+		4C4AE665191CF09A00F73121 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4AE664191CF09A00F73121 /* loginViewController.m */; };
+		4C6CAE62191CFD7900E1DE48 /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CAE61191CFD7900E1DE48 /* user.m */; };
+		4C6CAE65191E39D500E1DE48 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CAE64191E39D500E1DE48 /* homeViewController.m */; };
+		AD46D0897A6248BCBBF8DF1B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 260687D89A394A22B6AFC31F /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		260687D89A394A22B6AFC31F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4AE62F191CE2EF00F73121 /* photoCampaign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photoCampaign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4AE632191CE2EF00F73121 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4C4AE634191CE2EF00F73121 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +54,14 @@
 		4C4AE653191CE2F000F73121 /* photoCampaignTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "photoCampaignTests-Info.plist"; sourceTree = "<group>"; };
 		4C4AE655191CE2F000F73121 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C4AE657191CE2F000F73121 /* photoCampaignTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = photoCampaignTests.m; sourceTree = "<group>"; };
+		4C4AE661191CF00400F73121 /* mainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mainStoryboard.storyboard; sourceTree = "<group>"; };
+		4C4AE663191CF09A00F73121 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
+		4C4AE664191CF09A00F73121 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		4C6CAE60191CFD7900E1DE48 /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
+		4C6CAE61191CFD7900E1DE48 /* user.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = user.m; sourceTree = "<group>"; };
+		4C6CAE63191E39D500E1DE48 /* homeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
+		4C6CAE64191E39D500E1DE48 /* homeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
+		9F2D9C94942A4AFCB0F0BC6C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,7 @@
 				4C4AE635191CE2EF00F73121 /* CoreGraphics.framework in Frameworks */,
 				4C4AE637191CE2EF00F73121 /* UIKit.framework in Frameworks */,
 				4C4AE633191CE2EF00F73121 /* Foundation.framework in Frameworks */,
+				AD46D0897A6248BCBBF8DF1B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,7 @@
 				4C4AE651191CE2F000F73121 /* photoCampaignTests */,
 				4C4AE631191CE2EF00F73121 /* Frameworks */,
 				4C4AE630191CE2EF00F73121 /* Products */,
+				9F2D9C94942A4AFCB0F0BC6C /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +116,7 @@
 				4C4AE634191CE2EF00F73121 /* CoreGraphics.framework */,
 				4C4AE636191CE2EF00F73121 /* UIKit.framework */,
 				4C4AE64B191CE2F000F73121 /* XCTest.framework */,
+				260687D89A394A22B6AFC31F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,6 +128,13 @@
 				4C4AE642191CE2F000F73121 /* AppDelegate.m */,
 				4C4AE644191CE2F000F73121 /* Images.xcassets */,
 				4C4AE639191CE2F000F73121 /* Supporting Files */,
+				4C4AE661191CF00400F73121 /* mainStoryboard.storyboard */,
+				4C6CAE63191E39D500E1DE48 /* homeViewController.h */,
+				4C6CAE64191E39D500E1DE48 /* homeViewController.m */,
+				4C4AE663191CF09A00F73121 /* loginViewController.h */,
+				4C4AE664191CF09A00F73121 /* loginViewController.m */,
+				4C6CAE60191CFD7900E1DE48 /* user.h */,
+				4C6CAE61191CFD7900E1DE48 /* user.m */,
 			);
 			path = photoCampaign;
 			sourceTree = "<group>";
@@ -151,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C4AE65B191CE2F000F73121 /* Build configuration list for PBXNativeTarget "photoCampaign" */;
 			buildPhases = (
+				1AEC963FA2FD4D429E94A834 /* Check Pods Manifest.lock */,
 				4C4AE62B191CE2EF00F73121 /* Sources */,
 				4C4AE62C191CE2EF00F73121 /* Frameworks */,
 				4C4AE62D191CE2EF00F73121 /* Resources */,
+				E83C169982DC4AFEAF6F99EF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,6 +247,7 @@
 			files = (
 				4C4AE63D191CE2F000F73121 /* InfoPlist.strings in Resources */,
 				4C4AE645191CE2F000F73121 /* Images.xcassets in Resources */,
+				4C4AE662191CF00400F73121 /* mainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,12 +261,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1AEC963FA2FD4D429E94A834 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E83C169982DC4AFEAF6F99EF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4C4AE62B191CE2EF00F73121 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6CAE62191CFD7900E1DE48 /* user.m in Sources */,
 				4C4AE643191CE2F000F73121 /* AppDelegate.m in Sources */,
+				4C4AE665191CF09A00F73121 /* loginViewController.m in Sources */,
+				4C6CAE65191E39D500E1DE48 /* homeViewController.m in Sources */,
 				4C4AE63F191CE2F000F73121 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +417,7 @@
 		};
 		4C4AE65C191CE2F000F73121 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F2D9C94942A4AFCB0F0BC6C /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -367,6 +431,7 @@
 		};
 		4C4AE65D191CE2F000F73121 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F2D9C94942A4AFCB0F0BC6C /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -437,6 +502,7 @@
 				4C4AE65D191CE2F000F73121 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C4AE65E191CE2F000F73121 /* Build configuration list for PBXNativeTarget "photoCampaignTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +511,7 @@
 				4C4AE660191CE2F000F73121 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
