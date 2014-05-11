@@ -1,5 +1,5 @@
 //
-//  homeViewController.h
+//  homeNavController.h
 //  photoCampaign
 //
 //  Created by Dan Mindru on 10/05/14.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "user.h"
 
-@interface homeViewController : UIViewController
+@interface homeNavController : UINavigationController
 
 @end

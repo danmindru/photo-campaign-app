@@ -1,5 +1,5 @@
 //
-//  homeViewController.h
+//  accountViewController.h
 //  photoCampaign
 //
 //  Created by Dan Mindru on 10/05/14.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "user.h"
 
-@interface homeViewController : UIViewController
+@interface accountViewController : UIViewController
 
 @end

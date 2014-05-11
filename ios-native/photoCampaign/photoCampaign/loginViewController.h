@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "user.h"
-#import "homeViewController.h"
+#import "homeNavController.h"
 
 @interface loginViewController : UIViewController
 

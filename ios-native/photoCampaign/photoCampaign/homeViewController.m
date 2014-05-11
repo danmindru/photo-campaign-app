@@ -8,8 +8,10 @@
 
 #import "homeViewController.h"
 
-@interface homeViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
+@interface homeViewController (){
+	NSMutableArray *loadedUserObject;
+}
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *accountButton;
 
 @end
 
@@ -37,7 +39,16 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-	self.welcomeLabel.text = [[NSString alloc] initWithFormat:@"Welcome %@", [[self.userObject objectAtIndex:0] valueForKey:@"firstName"]];
+	NSString *userPlistURL = [user getPlistURL];
+	loadedUserObject = [user readFromPlist:userPlistURL];
+	
+	[self.accountButton setTitle:[[NSString alloc] initWithFormat:@"%@ %@", [[loadedUserObject objectAtIndex:0] valueForKey:@"firstName"], [[loadedUserObject objectAtIndex:0] valueForKey:@"lastName"]]];
+}
+
+- (IBAction)touchAccountName:(id)sender {
+}
+
+- (IBAction)logoutAction:(id)sender {
 }
 
 /*

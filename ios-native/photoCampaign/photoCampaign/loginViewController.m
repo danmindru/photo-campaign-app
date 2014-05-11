@@ -8,13 +8,9 @@
 
 #import "loginViewController.h"
 #import "AFNetworking.h"
+#import "statics.h"
 
-#define REQUEST_URL @"http://photocampaign.net"
-#define LOGIN_SLUG @"/auth/signin"
-
-@interface loginViewController (){
-	NSMutableArray *loadedUserObject;
-}
+@interface loginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
@@ -61,11 +57,11 @@
 				[self signInUser:responseObject];
 				
 				//initialize user from plist
-				NSString *userPlistURL = [user getPlistURL];
-				loadedUserObject = [user readFromPlist:userPlistURL];
+				//NSString *userPlistURL = [user getPlistURL];
+				//loadedUserObject = [user readFromPlist:userPlistURL];
 				
 				//segue to the home view with user data
-				[self segueToHomeViewWithUser];
+				[self segueToHomeView];
 				
 				//user can be loaded from plist, but can also be loaded from the response object
 				//here it will be loaded from plist for consistency
@@ -98,15 +94,19 @@
 	[jsonUser saveToPlist:userPlistURL];
 }
 
-- (void)segueToHomeViewWithUser{
+- (void)segueToHomeView{
 	//set the view controller as homeStoryboard
 	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
-	homeViewController *homeVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeStoryboard"];
+	homeNavController *homeNavVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeNavVC"];
 	
-	homeVC.userObject = loadedUserObject;
+	//the user object could be passed, or instantiated directly
+	//homeViewController *homeVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeVC"];
+	//homeNavVC.userObject = loadedUserObject;
 	
 	//animate to view controller
-	[(UINavigationController*)self presentViewController:homeVC animated:YES completion:nil];
+	//[(UINavigationController*)self presentViewController:homeVC animated:YES completion:nil];
+	[(UINavigationController*)self presentViewController:homeNavVC animated:YES completion:nil];
+
 }
 
 /*
