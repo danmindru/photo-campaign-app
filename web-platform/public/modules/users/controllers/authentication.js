@@ -24,7 +24,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 
         $scope.signin = function() {
             //ios simulation
-            $scope.credentials.isiOS = true;
+            //$scope.credentials.isiOS = true;
             
             $http.post('/auth/signin', $scope.credentials).success(function(response) {
                 //If successful we assign the response to the global user model
