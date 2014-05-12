@@ -95,6 +95,9 @@ exports.signup = function(req, res) {
  * Signin after passport authentication
  */
 exports.signin = function(req, res, next) {
+	//define variable that checks if request comes from iOS
+	var isiOS = req.body.isiOS;
+
 	passport.authenticate('local', function(err, user, info) {
 		if (err || !user) {
 			res.send(400, info);
@@ -103,13 +106,36 @@ exports.signin = function(req, res, next) {
 			user.password = undefined;
 			user.salt = undefined;
 
-			req.login(user, function(err) {
-				if (err) {
-					res.send(400, err);
-				} else {
-					res.jsonp(user);
-				}
-			});
+			if(isiOS){
+				//create the token from id+timestamp
+				user.isiOS = user._id+new Date().getTime().toString();
+
+				//update user with the new token
+				user.save(function(err) {
+					if (err) {
+						return res.send(400, {
+							message: getErrorMessage(err),
+							error: err
+						});
+					} else {
+						req.login(user, function(err) {
+							if (err) {
+								res.send(400, err);
+							} else {
+								res.jsonp(user);
+							}
+						});
+					}
+				});
+			} else {
+				req.login(user, function(err) {
+					if (err) {
+						res.send(400, err);
+					} else {
+						res.jsonp(user);
+					}
+				});
+			}
 		}
 	})(req, res, next);
 };
@@ -329,17 +355,18 @@ exports.userByID = function(req, res, next, id) {
  */
 exports.requiresLogin = function(req, res, next) {
 	//iOS login token
-	var loginToken = req.user.ios;
+	var loginToken = req.body.iOSToken;
 
 	if (!req.isAuthenticated() && !loginToken) {
 		return res.send(401, 'User is not logged in');
 	}
-	else if(loginToken){
+	
+	if(loginToken){
 		//grab userid
-		var userId = req.user._id;
+		var userId = req.body._id;
 		
 		User.findOne({
-		_id: req.user._id
+		_id: userId
 		}).select('-password').
 		select('-salt').exec(function(err, user) {
 			if (!err && user) {

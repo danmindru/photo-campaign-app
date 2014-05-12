@@ -81,6 +81,10 @@ var UserSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	iOSLoginToken: {
+		type:String,
+		default:''
+	},
 	campaignObject: {
 		type: Schema.ObjectId,
 		ref: 'Campaign'
