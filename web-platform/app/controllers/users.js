@@ -108,8 +108,8 @@ exports.signin = function(req, res, next) {
 				user.iOSToken = user._id+new Date().getTime().toString();
 
 				// Set password and salt to null to prevent overwrite
-				user.password = null;
-				user.salt = null;
+				delete user.password;
+				delete user.salt;
 
 				//update user with the new token
 				user.save(function(err) {
