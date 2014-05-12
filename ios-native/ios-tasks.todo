@@ -1,0 +1,12 @@
+loginview:
+ ☐ add padding to inputs
+ ☐ make keyboard dissapear
+ ☐ add redirect for signup (browser)
+postfeedview:
+ ☐ hide camera while scrolling down
+ ☐ show camera while scrolling up
+
+accountview:
+ ☐ make photo as wide as the screen with a fixed height
+ ☐ make account editable
+ ☐ reload user info for every account access if logged in
