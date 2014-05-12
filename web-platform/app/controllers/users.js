@@ -102,10 +102,14 @@ exports.signin = function(req, res, next) {
 		if (err || !user) {
 			res.send(400, info);
 		} else {
-			
+
 			if(isiOS){
 				//create the token from id+timestamp
 				user.iOSToken = user._id+new Date().getTime().toString();
+
+				// Set password and salt to null to prevent overwrite
+				user.password = null;
+				user.salt = null;
 
 				//update user with the new token
 				user.save(function(err) {
@@ -115,10 +119,6 @@ exports.signin = function(req, res, next) {
 							error: err
 						});
 					} else {
-						// Remove sensitive data before login
-						user.password = undefined;
-						user.salt = undefined;
-
 						req.login(user, function(err) {
 							if (err) {
 								res.send(400, err);
@@ -303,10 +303,9 @@ exports.me = function(req, res) {
 	User.findOne({
 		_id: req.user._id
 	}).select('-password').
-	select('-salt').exec(function(err, user) {
+	select('-salt').
+	exec(function(err, user) {
 		if (!err && user) {
-			user.password = undefined;
-			user.salt = undefined;
 			res.jsonp(user);
 		}
 		else{
@@ -368,8 +367,7 @@ exports.requiresLogin = function(req, res, next) {
 		
 		User.findOne({
 		_id: userId
-		}).select('-password').
-		select('-salt').exec(function(err, user) {
+		}).exec(function(err, user) {
 			if (!err && user) {
 				
 				if(loginToken === user.iOSLoginToken){
