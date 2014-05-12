@@ -81,7 +81,7 @@ var UserSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	iOSLoginToken: {
+	iOSToken: {
 		type:String,
 		default:''
 	},

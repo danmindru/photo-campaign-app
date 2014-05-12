@@ -5,8 +5,8 @@ var path = require('path'),
 
 module.exports = {
 	app: {
-		title: 'MEAN.JS',
-		description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
+		title: 'Photo Campaign Platform',
+		description: 'Photo Campaign Plaftform based on full-Stack JavaScript framework with MongoDB, Express, AngularJS and Node.js',
 		keywords: 'mongodb, express, angularjs, node.js, mongoose, passport'
 	},
 	root: rootPath,

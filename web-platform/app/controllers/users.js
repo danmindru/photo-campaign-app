@@ -102,10 +102,7 @@ exports.signin = function(req, res, next) {
 		if (err || !user) {
 			res.send(400, info);
 		} else {
-			// Remove sensitive data before login
-			user.password = undefined;
-			user.salt = undefined;
-
+			
 			if(isiOS){
 				//create the token from id+timestamp
 				user.iOSToken = user._id+new Date().getTime().toString();
@@ -118,6 +115,10 @@ exports.signin = function(req, res, next) {
 							error: err
 						});
 					} else {
+						// Remove sensitive data before login
+						user.password = undefined;
+						user.salt = undefined;
+
 						req.login(user, function(err) {
 							if (err) {
 								res.send(400, err);
@@ -370,8 +371,6 @@ exports.requiresLogin = function(req, res, next) {
 		}).select('-password').
 		select('-salt').exec(function(err, user) {
 			if (!err && user) {
-				user.password = undefined;
-				user.salt = undefined;
 				
 				if(loginToken === user.iOSLoginToken){
 					res.send(200, {
