@@ -328,8 +328,42 @@ exports.userByID = function(req, res, next, id) {
  * Require login routing middleware
  */
 exports.requiresLogin = function(req, res, next) {
-	if (!req.isAuthenticated()) {
+	//iOS login token
+	var loginToken = req.user.ios;
+
+	if (!req.isAuthenticated() && !loginToken) {
 		return res.send(401, 'User is not logged in');
+	}
+	else if(loginToken){
+		//grab userid
+		var userId = req.user._id;
+		
+		User.findOne({
+		_id: req.user._id
+		}).select('-password').
+		select('-salt').exec(function(err, user) {
+			if (!err && user) {
+				user.password = undefined;
+				user.salt = undefined;
+				
+				if(loginToken === user.iOSLoginToken){
+					res.send(200, {
+						message: 'User ok'
+					});
+				}
+				else{
+					res.send(400, {
+						message: 'User not allowed'
+					});
+				}
+				
+			}
+			else{
+				res.send(400, {
+					message: 'User is not found'
+				});
+			}
+		});
 	}
 
 	next();

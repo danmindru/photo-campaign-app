@@ -14,7 +14,7 @@
                 </span>
             </small><br/><br/>
             <h3 class="list-group-item-heading">{{post.title}}</h3><br/>
-            <img src="{{post.photoURL}}" alt="{{post.description}}"/><br/><br/>
+            <img data-ng-src="{{post.photoURL}}" alt="{{post.description}}"/><br/><br/>
             <p class="list-group-item-text">{{post.description}}</p>
             <h5>by <i>{{post.owner.firstName}} {{post.owner.lastName}}</i></h5>
             <span class="btn btn-primary view-details-button">
@@ -24,7 +24,7 @@
     </div>
 
 		<section class="alert alert-info" data-ng-hide="posts">
-			<p>There are no posts added for this user's campaign yet</p>
+			<small>There are no posts added for this user's campaign yet</small>
 		</section>
 	</section>
 </section>
