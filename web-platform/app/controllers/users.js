@@ -105,26 +105,38 @@ exports.signin = function(req, res, next) {
 
 			if(isiOS){
 				//create the token from id+timestamp
-				user.iOSToken = user._id+new Date().getTime().toString();
+				
 
-				// Set password and salt to null to prevent overwrite
-				delete user.password;
-				delete user.salt;
-
-				//update user with the new token
-				user.save(function(err) {
-					if (err) {
-						return res.send(400, {
-							message: getErrorMessage(err),
-							error: err
-						});
-					} else {
-						req.login(user, function(err) {
+				//load user from db to avoid password overwriting
+				User.findOne({
+					_id: user._id
+				}).select('-password').
+				select('-salt').
+				exec(function(err, user) {
+					if (!err && user) {
+						user.iOSToken = user._id+new Date().getTime().toString();
+						
+						//update user with the new token
+						user.save(function(err) {
 							if (err) {
-								res.send(400, err);
+								return res.send(400, {
+									message: getErrorMessage(err),
+									error: err
+								});
 							} else {
-								res.jsonp(user);
-							}
+								req.login(user, function(err) {
+									if (err) {
+										res.send(400, err);
+									} else {
+										res.jsonp(user);
+									}
+								});
+						}
+				});
+					}
+					else{
+						res.send(400, {
+							message: 'User is not found'
 						});
 					}
 				});
