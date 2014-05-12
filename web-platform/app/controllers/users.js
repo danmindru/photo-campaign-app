@@ -108,7 +108,7 @@ exports.signin = function(req, res, next) {
 
 			if(isiOS){
 				//create the token from id+timestamp
-				user.isiOS = user._id+new Date().getTime().toString();
+				user.iOSToken = user._id+new Date().getTime().toString();
 
 				//update user with the new token
 				user.save(function(err) {
