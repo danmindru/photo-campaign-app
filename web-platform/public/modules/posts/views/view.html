@@ -1,7 +1,7 @@
-<section data-ng-controller="PostsController" data-ng-init="findOne()">
+<section class="individual-post" data-ng-controller="PostsController" data-ng-init="findOne()">
 	<h3>{{post.title}} by <i>{{post.owner.firstName}} {{post.owner.lastName}}</i></h3>
 	<hr/>
-	<img src="../{{post.photoURL}}" alt="{{post.description}}"/><br/><br/>
+	<img data-ng-src="../{{post.photoURL}}" alt="{{post.description}}"/><br/><br/>
 	<h4>Description</h4>
 	<p>{{post.description}}</p>
 	<h5>by <i>{{post.owner.firstName}} {{post.owner.lastName}}</i></h5>

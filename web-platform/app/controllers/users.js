@@ -95,21 +95,60 @@ exports.signup = function(req, res) {
  * Signin after passport authentication
  */
 exports.signin = function(req, res, next) {
+	//define variable that checks if request comes from iOS
+	var isiOS = req.body.isiOS;
+
 	passport.authenticate('local', function(err, user, info) {
 		if (err || !user) {
 			res.send(400, info);
 		} else {
-			// Remove sensitive data before login
-			user.password = undefined;
-			user.salt = undefined;
 
-			req.login(user, function(err) {
-				if (err) {
-					res.send(400, err);
-				} else {
-					res.jsonp(user);
-				}
-			});
+			if(isiOS){
+				//create the token from id+timestamp
+				
+
+				//load user from db to avoid password overwriting
+				User.findOne({
+					_id: user._id
+				}).select('-password').
+				select('-salt').
+				exec(function(err, user) {
+					if (!err && user) {
+						user.iOSToken = user._id+new Date().getTime().toString();
+						
+						//update user with the new token
+						user.save(function(err) {
+							if (err) {
+								return res.send(400, {
+									message: getErrorMessage(err),
+									error: err
+								});
+							} else {
+								req.login(user, function(err) {
+									if (err) {
+										res.send(400, err);
+									} else {
+										res.jsonp(user);
+									}
+								});
+						}
+				});
+					}
+					else{
+						res.send(400, {
+							message: 'User is not found'
+						});
+					}
+				});
+			} else {
+				req.login(user, function(err) {
+					if (err) {
+						res.send(400, err);
+					} else {
+						res.jsonp(user);
+					}
+				});
+			}
 		}
 	})(req, res, next);
 };
@@ -276,10 +315,9 @@ exports.me = function(req, res) {
 	User.findOne({
 		_id: req.user._id
 	}).select('-password').
-	select('-salt').exec(function(err, user) {
+	select('-salt').
+	exec(function(err, user) {
 		if (!err && user) {
-			user.password = undefined;
-			user.salt = undefined;
 			res.jsonp(user);
 		}
 		else{
@@ -328,8 +366,40 @@ exports.userByID = function(req, res, next, id) {
  * Require login routing middleware
  */
 exports.requiresLogin = function(req, res, next) {
-	if (!req.isAuthenticated()) {
+	//iOS login token
+	var loginToken = req.body.iOSToken;
+
+	if (!req.isAuthenticated() && !loginToken) {
 		return res.send(401, 'User is not logged in');
+	}
+	
+	if(loginToken){
+		//grab userid
+		var userId = req.body._id;
+		
+		User.findOne({
+		_id: userId
+		}).exec(function(err, user) {
+			if (!err && user) {
+				
+				if(loginToken === user.iOSLoginToken){
+					res.send(200, {
+						message: 'User ok'
+					});
+				}
+				else{
+					res.send(400, {
+						message: 'User not allowed'
+					});
+				}
+				
+			}
+			else{
+				res.send(400, {
+					message: 'User is not found'
+				});
+			}
+		});
 	}
 
 	next();

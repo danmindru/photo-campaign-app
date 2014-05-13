@@ -122,7 +122,12 @@ exports.list = function(req, res) {
 
 	if(req.user){
 		userCampaignObject = req.user.campaignObject;
-	}
+	} 
+	else if(req.query.campaignObject){
+		//queries coming from iOS
+		//additional security measures can be taken here, although it's just for GET requests
+		userCampaignObject = req.query.campaignObject;
+	} 
 
 	//list all posts if user is not logged in
 	if(!userCampaignObject){
