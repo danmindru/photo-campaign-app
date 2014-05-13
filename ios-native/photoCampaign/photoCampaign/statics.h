@@ -11,6 +11,7 @@
 #define REQUEST_URL @"http://photocampaign.net"
 #define LOGIN_SLUG @"/auth/signin"
 #define IMAGE_BASE_SLUG @"/"
+#define POST_FEED @"/posts"
 
 @interface statics : NSObject
 
