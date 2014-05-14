@@ -61,7 +61,7 @@
 				 //save post data and then trigger child table view population method
 				  for(NSArray* onePost in responseObject){
 					  //instantiate post object
-					  post* postToSave = [[post alloc] initWithId:[onePost valueForKey:@"_id"] andCampaignIdentifier:[[onePost valueForKey:@"campaignObject" ] valueForKey:@"identifier"] andTitle:[onePost valueForKey:@"title"] andDescription:[onePost valueForKey:@"description"]  andPhotoURL:[onePost valueForKey:@"photoURL"] andCreated:[onePost valueForKey:@"created"]];
+					  post* postToSave = [[post alloc] initWithId:[onePost valueForKey:@"_id"] andCampaignIdentifier:[[onePost valueForKey:@"campaignObject" ] valueForKey:@"identifier"] andTitle:[onePost valueForKey:@"title"] andDescription:[onePost valueForKey:@"description"]  andPhotoURL:[onePost valueForKey:@"photoURL"] andCreated:[onePost valueForKey:@"created"] andAuthorFirstName:[[onePost valueForKey:@"owner"] valueForKey:@"firstName"] andAuthorLastName:[[onePost valueForKey:@"owner"] valueForKey:@"lastName"]];
 					  
 					  //get post url
 					  NSString* postPlistURL = [post getPlistURL];
@@ -94,9 +94,36 @@
 	UITableViewCell *oneCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 	
 	post *currentPost = [loadedPostObjects objectAtIndex:indexPath.row];
-	oneCell.textLabel.text = [currentPost title];
 	
+	//create image view and load the post image (and the rest of the data) in a separate thread for smooth scrolling
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+		//load image
+		NSString *urlString = [[NSString alloc] initWithFormat:@"%@%@%@", REQUEST_URL, IMAGE_BASE_SLUG, [currentPost photoURL]];
+		NSURL *photoURL = [[NSURL alloc] initWithString:urlString];
+		UIImage *loadedPostPhoto = [UIImage imageWithData:[NSData dataWithContentsOfURL:photoURL]];
+		UIImageView *postImageView = [[UIImageView alloc] initWithImage:loadedPostPhoto];
+		
+		//add the image as a cell subview
+		//center image?//postImageView.contentMode = UIViewContentModeCenter;
+		[oneCell addSubview:postImageView];
+		//trigger display update
+		[oneCell setNeedsDisplay];
+    });
+	
+	//load post author label
+	UILabel *postAuthor = [UILabel new];
+	postAuthor.frame = CGRectMake(0, 0, 320, 30);
+	postAuthor.text = [NSString stringWithFormat:@"by %@ %@", [currentPost authorFirstName], [currentPost authorLastName]];
+	
+	//add author name to cell subview
+	[oneCell addSubview:postAuthor];
+		
 	return oneCell;
+}
+
+//set cell height
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	return 500;
 }
 
 - (void) reloadPostFeed{
@@ -110,9 +137,6 @@
 }
 
 #pragma mark - Button actions
-
-- (IBAction)touchAccountName:(id)sender {
-}
 
 /*
 #pragma mark - Navigation

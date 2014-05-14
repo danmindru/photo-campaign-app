@@ -9,11 +9,15 @@ postfeedview (homeview):
  ☐ hide camera while scrolling down
  ☐ show camera while scrolling up
  ☐ change tableview separator
- ☐ create the post class with coder & cache to plist
- ☐ prevent overwriting plist if no new post data is available
+ ✔ create the post class with coder & cache to plist @done (14-05-14 09:04)
+ ✔ prevent overwriting plist if no new post data is available @done (14-05-14 09:04)
  ☐ display ratings in view cell
  ☐ create detailed view for each post
  ☐ remove post data at logout
+ ☐ improve offline post reading
+ ☐ save images to disk
+ ☐ use pull down to refresh
+ ☐ display 'no posts to show if JSON empty'
 cameraView/post:
 accountview:
  ☐ make photo as wide as the screen with a fixed height
@@ -21,3 +25,4 @@ accountview:
  ☐ reload user info for every account access if logged in
 other:
  ☐ statics could include PLIST names
+ ☐ add 'cannot load' default replacement image

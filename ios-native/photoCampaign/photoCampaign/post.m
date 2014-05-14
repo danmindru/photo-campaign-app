@@ -10,7 +10,7 @@
 
 @implementation post
 
-- (id)initWithId:(NSString *)_id andCampaignIdentifier:(NSString *)campaignIdentifier andTitle:(NSString *)title andDescription:(NSString *)description andPhotoURL:(NSString *)photoURL andCreated:(NSString *)created{
+- (id)initWithId:(NSString *)_id andCampaignIdentifier:(NSString *)campaignIdentifier andTitle:(NSString *)title andDescription:(NSString *)description andPhotoURL:(NSString *)photoURL andCreated:(NSString *)created andAuthorFirstName:(NSString*)authorFirstName andAuthorLastName:(NSString*)authorLastName{
 	
 	self = [super init];
 	
@@ -21,6 +21,8 @@
 		self.description = description;
 		self.photoURL = photoURL;
 		self.created = created;
+		self.authorFirstName = authorFirstName;
+		self.authorLastName = authorLastName;
 	}
 	
 	return self;
@@ -34,6 +36,8 @@
 	[coder encodeObject:self.description forKey:@"description"];
 	[coder encodeObject:self.photoURL forKey:@"photoURL"];
 	[coder encodeObject:self.created forKey:@"created"];
+	[coder encodeObject:self.authorFirstName forKey:@"authorFirstName"];
+	[coder encodeObject:self.authorLastName forKey:@"authorLastName"];
 }
 
 - (id) initWithCoder: (NSCoder *) coder{
@@ -43,6 +47,8 @@
 	self.description = [coder decodeObjectForKey:@"description"];
 	self.photoURL = [coder decodeObjectForKey:@"photoURL"];
 	self.created = [coder decodeObjectForKey:@"created"];
+	self.authorFirstName = [coder decodeObjectForKey:@"authorFirstName"];
+	self.authorLastName = [coder decodeObjectForKey:@"authorLastName"];
 	
 	return self;
 }

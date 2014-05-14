@@ -16,9 +16,12 @@
 @property (strong, nonatomic) NSString *description;
 @property (strong, nonatomic) NSString *photoURL;
 @property (strong, nonatomic) NSString *created;
+@property (strong, nonatomic) NSString *authorFirstName;
+@property (strong, nonatomic) NSString *authorLastName;
+
 //user rating should be extended here
 
-- (id)initWithId:(NSString *)_id andCampaignIdentifier:(NSString *)campaignIdentifier andTitle:(NSString *)title andDescription:(NSString *)description andPhotoURL:(NSString *)photoURL andCreated:(NSString *)created;
+- (id)initWithId:(NSString *)_id andCampaignIdentifier:(NSString *)campaignIdentifier andTitle:(NSString *)title andDescription:(NSString *)description andPhotoURL:(NSString *)photoURL andCreated:(NSString *)created andAuthorFirstName:(NSString*)authorFirstName andAuthorLastName:(NSString*)authorLastName;
 
 - (void) saveToPlist:(NSString *)plistURL;
 + (void) removeAllPosts:(NSString *)plistURL;
