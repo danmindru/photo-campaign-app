@@ -40,7 +40,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - account login and logout methods
+- (void)viewDidAppear:(BOOL)animated{
+	NSString *userPlistURL = [user getPlistURL];
+	NSArray *plistUserData = [user readFromPlist:userPlistURL];
+	
+	if([plistUserData count] > 0){
+		NSArray *loadedUserObject = [[NSArray alloc] initWithArray:plistUserData];
+		
+		if(loadedUserObject != nil){
+			if([loadedUserObject objectAtIndex:0] != nil){
+				//user is already signed in from a previous session
+				//login for many iOS devices can be implemented here
+				[self segueToHomeView];
+			}
+		}
+	}
+}
+
+#pragma mark - Account login methods
 - (IBAction)signInAction:(id)sender {
 	//check if password and email are set
 	if([self.emailInput.text length] != 0 && [self.passwordInput.text length] != 0){
@@ -49,7 +66,8 @@
 		
 		AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 		NSDictionary *params = @{@"email": self.emailInput.text,
-								 @"password": self.passwordInput.text};
+								 @"password": self.passwordInput.text,
+								 @"isiOS": @1};
 		
 		[manager POST:loginString parameters:params
 			success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -70,10 +88,14 @@
 				//self.userWelcome.text = [[NSString alloc] initWithFormat:@"Hi %@ %@", [[loadedUserObject objectAtIndex:0] valueForKey:@"firstName"], [[loadedUserObject objectAtIndex:0] valueForKey:@"lastName"]];
 				
 				//log JSON response
-				//NSLog(@"JSON: %@", responseObject);
+				NSLog(@"Login success JSON: %@", responseObject);
 			}
 			failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-				NSLog(@"Error: %@", error);
+				UIAlertView *accountAlert = [[UIAlertView alloc] initWithTitle:@"Cannot sign in" message:@"Make sure you have an active internet connection and you have typed the correct email and password" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+				
+				[accountAlert show];
+				
+				NSLog(@"loign Error: %@", error);
 			}
 		];
 
@@ -90,10 +112,44 @@
 	NSString *userPlistURL = [user getPlistURL];
 	
 	//store user data in plist
-	user *jsonUser = [[user alloc] initWithId:(NSString *)responseJSON[@"_id"] andEmail:responseJSON[@"email"] andFirstName:responseJSON[@"firstName"] andLastName:responseJSON[@"lastName"] andBio:responseJSON[@"bio"] andLevel:responseJSON[@"level"] andPhotoURL:responseJSON[@"photoURL"] andProvider:responseJSON[@"provider"] andUpdated:responseJSON[@"updated"] andCreated:responseJSON[@"created"]];
+	user *jsonUser = [[user alloc] initWithId:(NSString *)responseJSON[@"_id"] andEmail:responseJSON[@"email"] andFirstName:responseJSON[@"firstName"] andLastName:responseJSON[@"lastName"] andBio:responseJSON[@"bio"] andLevel:responseJSON[@"level"] andPhotoURL:responseJSON[@"photoURL"] andProvider:responseJSON[@"provider"] andUpdated:responseJSON[@"updated"] andCreated:responseJSON[@"created"] andCampaign:responseJSON[@"campaignObject"] andLoginToken:responseJSON[@"iOSToken"]];
 	[jsonUser saveToPlist:userPlistURL];
 }
 
+- (IBAction)signUpAction:(id)sender {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://photocampaign.net/#!/signup"]];
+}
+
+#pragma mark - Keyboard methods
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+	if(textField == self.emailInput){
+		[self.passwordInput becomeFirstResponder];
+	}
+	else{
+		[textField resignFirstResponder];
+		//call sign in IBAction
+		[self signInAction:nil];
+	}
+	
+	return YES;
+}
+
+//hide keyboard on background touch
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.emailInput isFirstResponder] && [touch view] != self.emailInput) {
+        [self.emailInput resignFirstResponder];
+    }
+	else if([self.passwordInput isFirstResponder] && [touch view] != self.passwordInput) {
+        [self.passwordInput resignFirstResponder];
+	}
+	
+    [super touchesBegan:touches withEvent:event];
+}
+
+
+#pragma mark - Navigation
 - (void)segueToHomeView{
 	//set the view controller as homeStoryboard
 	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
@@ -106,18 +162,7 @@
 	//animate to view controller
 	//[(UINavigationController*)self presentViewController:homeVC animated:YES completion:nil];
 	[(UINavigationController*)self presentViewController:homeNavVC animated:YES completion:nil];
-
+	
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

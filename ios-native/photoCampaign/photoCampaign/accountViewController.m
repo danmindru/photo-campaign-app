@@ -43,16 +43,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)logoutAction:(id)sender {
+	//remove post data from plist
+	NSString* postPlistURL = [post getPlistURL];
+	[post removeAllPosts:postPlistURL];
+	
+	//additionally, a request can be sent to remove the user's iOS token from the DB
+	NSString *userPlistURL = [user getPlistURL];
+	[user removeFromPlist:userPlistURL];
+	
+	[self segueToLoginView];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
 	NSString *userPlistURL = [user getPlistURL];
 	loadedUserObject = [user readFromPlist:userPlistURL];
+	NSArray *allUserData = [loadedUserObject objectAtIndex:0];
 	
-	self.profileName.text = [[NSString alloc] initWithFormat:@"%@ %@", [[loadedUserObject objectAtIndex:0] valueForKey:@"firstName"], [[loadedUserObject objectAtIndex:0] valueForKey:@"lastName"]];
-	self.profileEmail.text = [[NSString alloc] initWithFormat:@"%@", [[loadedUserObject objectAtIndex:0] valueForKey:@"email"]];
-	self.profileBio.text = [[NSString alloc] initWithFormat:@"%@", [[loadedUserObject objectAtIndex:0] valueForKey:@"bio"]];
-	self.profileCreatedDate.text = [[NSString alloc] initWithFormat:@"%@", [[loadedUserObject objectAtIndex:0] valueForKey:@"created"]];
+	self.profileName.text = [[NSString alloc] initWithFormat:@"%@ %@", [allUserData valueForKey:@"firstName"], [allUserData valueForKey:@"lastName"]];
+	self.profileEmail.text = [[NSString alloc] initWithFormat:@"%@", [allUserData valueForKey:@"email"]];
+	self.profileBio.text = [[NSString alloc] initWithFormat:@"%@", [allUserData valueForKey:@"bio"]];
 	
-	NSString *urlString = [[NSString alloc] initWithFormat:@"%@%@%@", REQUEST_URL, IMAGE_BASE_SLUG, [[loadedUserObject objectAtIndex:0] valueForKey:@"photoURL"]];
+	//convert date before displaying
+	//convert the DB datetime into timestamp
+	
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+	NSDate *postCreatedDate = [dateFormatter dateFromString:[allUserData valueForKey:@"created"]];
+	
+	
+	NSDateFormatter *prettyDateFormatter = [[NSDateFormatter alloc] init];
+	[prettyDateFormatter setDateStyle:NSDateFormatterLongStyle];
+	[prettyDateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	
+	NSString *postPrettyDate = [prettyDateFormatter stringFromDate:postCreatedDate];
+	
+	self.profileCreatedDate.text = [[NSString alloc] initWithFormat:@"%@", postPrettyDate];
+	
+	NSString *urlString = [[NSString alloc] initWithFormat:@"%@%@%@", REQUEST_URL, IMAGE_BASE_SLUG, [allUserData valueForKey:@"photoURL"]];
 	NSURL *photoURL = [[NSURL alloc] initWithString:urlString];
 	UIImage *loadedProfilePhoto = [UIImage imageWithData:[NSData dataWithContentsOfURL:photoURL]];
 	[self.profileImage setImage:loadedProfilePhoto];
@@ -62,15 +90,13 @@
 }
 
 
-/*
 #pragma mark - Navigation
+- (void)segueToLoginView{
+	//set the view controller as homeStoryboard
+	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
+	loginViewController *loginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginVC"];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	[(UINavigationController*)self presentViewController:loginVC animated:YES completion:nil];
 }
-*/
 
 @end

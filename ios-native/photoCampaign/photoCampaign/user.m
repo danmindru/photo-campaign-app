@@ -10,7 +10,7 @@
 
 @implementation user
 
-- (id)initWithId:(NSString *)_id andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andBio:(NSString *)bio andLevel:(NSString *)level andPhotoURL:(NSString *)photoURL andProvider:(NSString *)provider andUpdated:(NSString *)updated andCreated:(NSString *)created{
+- (id)initWithId:(NSString *)_id andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andBio:(NSString *)bio andLevel:(NSString *)level andPhotoURL:(NSString *)photoURL andProvider:(NSString *)provider andUpdated:(NSString *)updated andCreated:(NSString *)created andCampaign:(NSString *)campaign andLoginToken:(NSString *)loginToken{
 	self = [super init];
 	if(self){
 		self._id = _id;
@@ -23,6 +23,8 @@
 		self.provider = provider;
 		self.updated = updated;
 		self.created = created;
+		self.campaign = campaign;
+		self.loginToken = loginToken;
 	}
 	
 	return self;
@@ -39,6 +41,8 @@
 	[coder encodeObject:self.provider forKey:@"provider"];
 	[coder encodeObject:self.updated forKey:@"updated"];
 	[coder encodeObject:self.created forKey:@"created"];
+	[coder encodeObject:self.campaign forKey:@"campaign"];
+	[coder encodeObject:self.loginToken forKey:@"loginToken"];
 }
 
 - (id) initWithCoder: (NSCoder *) coder{
@@ -52,6 +56,8 @@
 	self.provider = [coder decodeObjectForKey:@"provider"];
 	self.updated = [coder decodeObjectForKey:@"updated"];
 	self.created = [coder decodeObjectForKey:@"created"];
+	self.campaign = [coder decodeObjectForKey:@"campaign"];
+	self.loginToken = [coder decodeObjectForKey:@"loginToken"];
 	
 	return self;
 }
@@ -81,7 +87,7 @@
 	
 	//add to dictionary
 	//adding self as in the current instance of the user
-	[itemsHolder setObject:self forKey:[NSString stringWithFormat:@"user"]];
+	[itemsHolder setObject:self forKey:@"user"];
 	
 	//save to file
 	[NSKeyedArchiver archiveRootObject:itemsHolder toFile:plistURL];
@@ -103,9 +109,11 @@
 		
 		//if not empty
 		if(userData != nil){
-			//load the values of all postcards
-			NSArray * finalUserData = [userData objectForKey:[NSString stringWithFormat:@"user"]];
-			[loadedUserData addObject:finalUserData];
+			//load the value of the user if array not empty
+			if([userData objectForKey:@"user"] != nil){
+				NSArray * finalUserData = [userData objectForKey:@"user"];
+				[loadedUserData addObject:finalUserData];
+			}
 		}
 	}
 	

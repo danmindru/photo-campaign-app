@@ -20,8 +20,10 @@
 @property (strong, nonatomic) NSString *provider;
 @property (strong, nonatomic) NSString *updated;
 @property (strong, nonatomic) NSString *created;
+@property (strong, nonatomic) NSString *campaign;
+@property (strong, nonatomic) NSString *loginToken;
 
-- (id)initWithId:(NSString *)_id andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andBio:(NSString *)bio andLevel:(NSString *)level andPhotoURL:(NSString *)photoURL andProvider:(NSString *)provider andUpdated:(NSString *)updated andCreated:(NSString *)created;
+- (id)initWithId:(NSString *)_id andEmail:(NSString *)email andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andBio:(NSString *)bio andLevel:(NSString *)level andPhotoURL:(NSString *)photoURL andProvider:(NSString *)provider andUpdated:(NSString *)updated andCreated:(NSString *)created andCampaign:(NSString *)campaign andLoginToken:(NSString *)loginToken;
 - (void) saveToPlist:(NSString *)plistURL;
 + (void) removeFromPlist:(NSString *)plistURL;
 + (NSMutableArray *)readFromPlist:(NSString *)plistURL;

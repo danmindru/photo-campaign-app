@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "user.h"
+#import "post.h"
 
-@interface homeViewController : UIViewController
+@interface homeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

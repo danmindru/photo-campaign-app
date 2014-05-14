@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "user.h"
+#import "post.h"
+#import "loginViewController.h"
 
 @interface accountViewController : UIViewController
 
