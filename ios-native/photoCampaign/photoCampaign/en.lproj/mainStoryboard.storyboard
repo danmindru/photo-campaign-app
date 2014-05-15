@@ -102,98 +102,84 @@
             <point key="canvasLocation" x="703" y="108"/>
         </scene>
         <!--Home View Controller-->
-        <scene sceneID="8VY-68-Vfk">
+        <scene sceneID="IjU-1G-QeJ">
             <objects>
-                <viewController storyboardIdentifier="postfeed" id="orh-tl-adi" customClass="homeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wHF-Sh-9YO"/>
-                        <viewControllerLayoutGuide type="bottom" id="LZu-JK-SmG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7m7-Bu-nbn">
+                <tableViewController storyboardIdentifier="postfeed" id="vfD-b0-oWL" customClass="homeViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="33" sectionHeaderHeight="22" sectionFooterHeight="22" id="kl5-kI-Iar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="291" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RS3-Ue-sVF" customClass="feedTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="defaultPostCell" rowHeight="291" id="beb-Pd-HnM">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="291"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="beb-Pd-HnM" id="hes-sy-g2l">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="290"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gAi-tb-lEK">
-                                                    <rect key="frame" x="0.0" y="29" width="320" height="214"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beautiful title of the post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyJ-p8-RRq">
-                                                    <rect key="frame" x="20" y="256" width="280" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dan Mindru" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfv-FQ-SdB">
-                                                    <rect key="frame" x="20" y="3" width="73" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 minutes ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0A-pp-g00">
-                                                    <rect key="frame" x="181" y="3" width="119" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                </prototypes>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xnx-ie-5e3">
+                            <rect key="frame" x="0.0" y="476" width="320" height="110"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="tab_bar_icons_photo_camp_btn_camera">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="defaultPostCell" rowHeight="390" id="beb-Pd-HnM" customClass="postTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="390"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="beb-Pd-HnM" id="hes-sy-g2l">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="389"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMw-DB-a3p">
+                                            <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bY5-es-pqf">
+                                            <rect key="frame" x="20" y="49" width="280" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SCC-0s-9pc">
+                                            <rect key="frame" x="0.0" y="73" width="320" height="270"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title of this post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iu2-NC-U6K">
+                                            <rect key="frame" x="20" y="351" width="280" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="orh-tl-adi" id="t6T-C9-Vh7"/>
-                                    <outlet property="delegate" destination="orh-tl-adi" id="40I-RN-ek4"/>
+                                    <outlet property="postAuthor" destination="QMw-DB-a3p" id="eY6-m6-wkY"/>
+                                    <outlet property="postDate" destination="bY5-es-pqf" id="8oK-ba-oYR"/>
+                                    <outlet property="postImage" destination="SCC-0s-9pc" id="i2f-Jx-PjA"/>
+                                    <outlet property="postTitle" destination="Iu2-NC-U6K" id="eh5-xj-4ip"/>
                                 </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnx-ie-5e3">
-                                <rect key="frame" x="78" y="445" width="165" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="tab_bar_icons_photo_camp_btn_camera">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xnx-ie-5e3" firstAttribute="leading" secondItem="7m7-Bu-nbn" secondAttribute="leading" constant="78" id="1XQ-ds-3nt"/>
-                            <constraint firstItem="RS3-Ue-sVF" firstAttribute="centerX" secondItem="xnx-ie-5e3" secondAttribute="centerX" id="CCx-h2-bTZ"/>
-                            <constraint firstItem="RS3-Ue-sVF" firstAttribute="top" secondItem="wHF-Sh-9YO" secondAttribute="bottom" constant="-64" id="Kkk-IL-NdV"/>
-                            <constraint firstAttribute="bottom" secondItem="RS3-Ue-sVF" secondAttribute="bottom" id="MFZ-71-gGn"/>
-                            <constraint firstItem="LZu-JK-SmG" firstAttribute="top" secondItem="xnx-ie-5e3" secondAttribute="bottom" constant="13" id="Qep-c4-LdK"/>
-                            <constraint firstAttribute="trailing" secondItem="xnx-ie-5e3" secondAttribute="trailing" constant="77" id="Roc-6W-X9d"/>
-                            <constraint firstItem="RS3-Ue-sVF" firstAttribute="leading" secondItem="7m7-Bu-nbn" secondAttribute="leading" id="zbY-JH-m5T"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="BHk-kv-Mbv">
-                        <barButtonItem key="backBarButtonItem" title="Postfeed" id="3a2-a6-nR1"/>
-                        <barButtonItem key="leftBarButtonItem" title="User Name" id="yTT-c0-zuF">
-                            <color key="tintColor" red="0.12485835789999999" green="0.12589495019999999" blue="0.12900472690000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vfD-b0-oWL" id="5SD-MH-G9v"/>
+                            <outlet property="delegate" destination="vfD-b0-oWL" id="1Ug-tk-52z"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="f8E-8r-s6e">
+                        <barButtonItem key="backBarButtonItem" title="Postfeed" id="dYJ-RG-qdl"/>
+                        <barButtonItem key="leftBarButtonItem" title="User Name" id="V2a-my-wva">
                             <connections>
-                                <segue destination="fox-0U-2g2" kind="push" id="7SZ-Yh-qRR"/>
+                                <segue destination="fox-0U-2g2" kind="push" id="cgc-bt-lEP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="accountButton" destination="yTT-c0-zuF" id="hma-1w-Bpl"/>
-                        <outlet property="feedTableView" destination="RS3-Ue-sVF" id="EOO-zE-fGc"/>
+                        <outlet property="accountButton" destination="V2a-my-wva" id="GPI-3H-xl7"/>
+                        <outlet property="photoButton" destination="xnx-ie-5e3" id="ZEu-ql-hZf"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7vX-nB-7L3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VZq-XZ-Kim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1612" y="112"/>
+            <point key="canvasLocation" x="1633" y="112"/>
         </scene>
         <!--Account View Controller - My profile-->
         <scene sceneID="X4f-HZ-5cQ">
@@ -246,7 +232,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="orh-tl-adi" kind="relationship" relationship="rootViewController" id="rxT-9v-pUa"/>
+                        <segue destination="vfD-b0-oWL" kind="relationship" relationship="rootViewController" id="NR6-TP-V7N"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ete-hA-Z2P" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -23,6 +23,7 @@
 		4C4AE656191CE2F000F73121 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C4AE654191CE2F000F73121 /* InfoPlist.strings */; };
 		4C4AE658191CE2F000F73121 /* photoCampaignTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4AE657191CE2F000F73121 /* photoCampaignTests.m */; };
 		4C4AE665191CF09A00F73121 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4AE664191CF09A00F73121 /* loginViewController.m */; };
+		4C5AB3DA1924F21600BF692D /* postTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AB3D91924F21600BF692D /* postTableViewCell.m */; };
 		4C5BA82019240E4800485315 /* accountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5BA81E19240C3300485315 /* accountViewController.m */; };
 		4C6CAE62191CFD7900E1DE48 /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CAE61191CFD7900E1DE48 /* user.m */; };
 		4C6CAE71191E748A00E1DE48 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CAE70191E748A00E1DE48 /* homeViewController.m */; };
@@ -67,6 +68,8 @@
 		4C4AE657191CE2F000F73121 /* photoCampaignTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = photoCampaignTests.m; sourceTree = "<group>"; };
 		4C4AE663191CF09A00F73121 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		4C4AE664191CF09A00F73121 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		4C5AB3D81924F21600BF692D /* postTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = postTableViewCell.h; sourceTree = "<group>"; };
+		4C5AB3D91924F21600BF692D /* postTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = postTableViewCell.m; sourceTree = "<group>"; };
 		4C5BA81D19240C3200485315 /* accountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = accountViewController.h; sourceTree = "<group>"; };
 		4C5BA81E19240C3300485315 /* accountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = accountViewController.m; sourceTree = "<group>"; };
 		4C6CAE60191CFD7900E1DE48 /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				4C4AE639191CE2F000F73121 /* Supporting Files */,
 				4C30251B19217C36003262B9 /* feedTableView.h */,
 				4C30251C19217C36003262B9 /* feedTableView.m */,
+				4C5AB3D81924F21600BF692D /* postTableViewCell.h */,
+				4C5AB3D91924F21600BF692D /* postTableViewCell.m */,
 				4C6CAE81191FCD2500E1DE48 /* accountTextField.h */,
 				4C6CAE82191FCD2600E1DE48 /* accountTextField.m */,
 				4C5BA81D19240C3200485315 /* accountViewController.h */,
@@ -332,6 +337,7 @@
 				4C6CAE62191CFD7900E1DE48 /* user.m in Sources */,
 				4C5BA82019240E4800485315 /* accountViewController.m in Sources */,
 				4C4AE643191CE2F000F73121 /* AppDelegate.m in Sources */,
+				4C5AB3DA1924F21600BF692D /* postTableViewCell.m in Sources */,
 				4C6CAE74191E763C00E1DE48 /* homeNavController.m in Sources */,
 				4C6CAE83191FCD2600E1DE48 /* accountTextField.m in Sources */,
 				4C4AE665191CF09A00F73121 /* loginViewController.m in Sources */,

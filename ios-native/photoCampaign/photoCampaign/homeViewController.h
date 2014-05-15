@@ -10,6 +10,6 @@
 #import "user.h"
 #import "post.h"
 
-@interface homeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface homeViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

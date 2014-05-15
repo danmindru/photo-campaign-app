@@ -46,17 +46,12 @@
 	loadedUserObject = [user readFromPlist:userPlistURL];
 	NSArray *allUserData = [loadedUserObject objectAtIndex:0];
 	
-	//define green color
+	//define colors
 	UIColor *greenColor = [[UIColor alloc] initWithRed:85/255.f green:221/225.f blue:82/225.f alpha:1];
 	UIColor *lightGrayColor = [[UIColor alloc] initWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
 	
-	//self.profileName.text = [[NSString alloc] initWithFormat:@"%@ %@", [allUserData valueForKey:@"firstName"], [allUserData valueForKey:@"lastName"]];
-	//self.profileEmail.text = [[NSString alloc] initWithFormat:@"%@", [allUserData valueForKey:@"email"]];
-	//self.profileBio.text = [[NSString alloc] initWithFormat:@"%@", [allUserData valueForKey:@"bio"]];
-	
 	//convert date before displaying
 	//convert the DB datetime into timestamp
-	
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
 	NSDate *postCreatedDate = [dateFormatter dateFromString:[allUserData valueForKey:@"created"]];
@@ -67,9 +62,6 @@
 	[prettyDateFormatter setTimeStyle:NSDateFormatterShortStyle];
 	
 	NSString *postPrettyDate = [prettyDateFormatter stringFromDate:postCreatedDate];
-	
-	//self.profileCreatedDate.text = [[NSString alloc] initWithFormat:@"%@", postPrettyDate];
-	
 	
 	//add label for name and surname
 	UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 280, 28)];
