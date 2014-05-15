@@ -18,11 +18,15 @@ postfeedview (homeview):
  ☐ save images to disk
  ☐ use pull down to refresh
  ☐ display 'no posts to show if JSON empty'
+ ☐ delete posts (if owner)
+ ☐ delete posts if deleted on the server!
 cameraView/post:
 accountview:
  ☐ make photo as wide as the screen with a fixed height
  ☐ make account editable
  ☐ reload user info for every account access if logged in
+ ☐ show post info on profile
+ ☐ show own posts on profile
 other:
  ☐ statics could include PLIST names
  ☐ add 'cannot load' default replacement image

@@ -47,7 +47,6 @@
 	NSArray *allUserData = [loadedUserObject objectAtIndex:0];
 	
 	//define colors
-	UIColor *greenColor = [[UIColor alloc] initWithRed:85/255.f green:221/225.f blue:82/225.f alpha:1];
 	UIColor *lightGrayColor = [[UIColor alloc] initWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
 	
 	//convert date before displaying
@@ -66,7 +65,7 @@
 	//add label for name and surname
 	UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 280, 28)];
 	[nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:34]];
-	nameLabel.textColor = greenColor;
+	nameLabel.textColor = [UIColor blackColor];
 	nameLabel.text = [[NSString alloc] initWithFormat:@"%@ %@", [allUserData valueForKey:@"firstName"], [allUserData valueForKey:@"lastName"]];
 	
 	//add label for email

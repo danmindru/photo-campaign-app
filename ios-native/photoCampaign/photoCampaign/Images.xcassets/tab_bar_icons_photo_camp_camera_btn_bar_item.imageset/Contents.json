@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "tab_bar_icons_photo_camp_btn_camera.png"
+      "filename" : "tab_bar_icons_photo_camp_camera_btn_bar_item.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "tab_bar_icons_photo_camp_btn_camera@2x.png"
+      "filename" : "tab_bar_icons_photo_camp_camera_btn_bar_item@2x.png"
     }
   ],
   "info" : {

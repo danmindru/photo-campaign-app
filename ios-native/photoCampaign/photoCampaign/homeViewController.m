@@ -17,7 +17,7 @@
 	NSMutableArray *loadedPostObjects;
 }
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *accountButton;
-@property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *photoButton;
 @property CGPoint lastContentOffset;
 
 @end
@@ -41,7 +41,7 @@
 	//setup refresh
 	UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
 	
-	refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+	refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull down and release to refresh"];
 	[refresh addTarget:self action:@selector(httpLoadPostData) forControlEvents:UIControlEventValueChanged];
 	
 	self.refreshControl = refresh;
@@ -57,15 +57,15 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-	//hide photo button
-	self.photoButton.hidden = YES;
-	
 	//read the user and change the text of the top left account button
 	NSString *userPlistURL = [user getPlistURL];
 	loadedUserObject = [user readFromPlist:userPlistURL];
 	NSArray *allUserData = [loadedUserObject objectAtIndex:0];
 	
 	[self.accountButton setTitle:[[NSString alloc] initWithFormat:@"%@ %@", [allUserData valueForKey:@"firstName"], [allUserData valueForKey:@"lastName"]]];
+	
+	//set footer/header
+	[self setTableFooterOrHeader];
 	
 	//load posts
 	[self httpLoadPostData];
@@ -79,13 +79,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	//setup cell identifier and init cell
 	static NSString *CellIdentifier = @"defaultPostCell";
-	postTableViewCell *oneCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+	postTableViewCell *oneCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
 	//load the corresponding post data
 	post *currentPost = [loadedPostObjects objectAtIndex:indexPath.row];
 	
+	//cancel the cell selected background
+	oneCell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
 	//create image view and load the post image (and the rest of the data) in a separate thread for smooth scrolling
-	//set a image placeholder before the async call finishes
+	//set a image placeholder before the async call will be performed
 	UIImage *placeholderPhoto = [UIImage imageNamed:@"image-placeholder"];
 	[oneCell.postImage setImage:placeholderPhoto];
 	
@@ -131,8 +134,8 @@
 
 //set cell height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	//image height * usernamelabel height
-	return  (320 + 70);
+	//cell height defined in IB
+	return  390;
 }
 
 - (void) httpLoadPostData{
@@ -194,45 +197,8 @@
 	[self.refreshControl endRefreshing];
 }
 
--(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row){
-        //end of loading
-        //setup camera button
-		self.photoButton.hidden = NO;
-		CGRect frame = self.photoButton.frame;
-		frame.origin.y = self.tableView.frame.size.height - self.photoButton.frame.size.height - 65 - 20;
-		self.photoButton.frame = frame;
-    }
-}
 
-//tableView scroll button-stick
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-	[self showOrHideCameraButton:scrollView];
-	[self positionCameraButtonBottom:scrollView];
-}
-
-//show-hide camera button depending on scroll position
-- (void)showOrHideCameraButton:(UIScrollView *)scrollView{
-	CGPoint currentOffset = scrollView.contentOffset;
-    
-	if (currentOffset.y > self.lastContentOffset.y){
-		self.photoButton.hidden = YES;
-    }
-	else {
-        self.photoButton.hidden = NO;
-    }
-	
-    self.lastContentOffset = currentOffset;
-}
-
-//position camera button methods
-- (void)positionCameraButtonBottom:(UIScrollView*)scrollView{
-	CGRect frame = self.photoButton.frame;
-    frame.origin.y = scrollView.contentOffset.y + self.tableView.frame.size.height - self.photoButton.frame.size.height - 20;
-    self.photoButton.frame = frame;
-	
-    [self.view bringSubviewToFront:self.photoButton];
+- (void)setTableFooterOrHeader{
 }
 
 #pragma mark - Button actions

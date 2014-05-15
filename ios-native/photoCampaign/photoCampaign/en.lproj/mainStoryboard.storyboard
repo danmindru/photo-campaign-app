@@ -109,13 +109,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xnx-ie-5e3">
-                            <rect key="frame" x="0.0" y="476" width="320" height="110"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="tab_bar_icons_photo_camp_btn_camera">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="defaultPostCell" rowHeight="390" id="beb-Pd-HnM" customClass="postTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="390"/>
@@ -125,14 +118,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMw-DB-a3p">
-                                            <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="280" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" red="0.88627457620000005" green="0.89019614459999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bY5-es-pqf">
-                                            <rect key="frame" x="20" y="49" width="280" height="16"/>
+                                            <rect key="frame" x="20" y="46" width="280" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,14 +135,21 @@
                                             <rect key="frame" x="0.0" y="73" width="320" height="270"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wc1-Xq-vSd">
+                                            <rect key="frame" x="0.0" y="342" width="320" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.96785878270000003" green="0.97589408700000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title of this post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iu2-NC-U6K">
-                                            <rect key="frame" x="20" y="351" width="280" height="21"/>
+                                            <rect key="frame" x="20" y="342" width="280" height="47"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="postAuthor" destination="QMw-DB-a3p" id="eY6-m6-wkY"/>
@@ -167,19 +167,44 @@
                     <navigationItem key="navigationItem" id="f8E-8r-s6e">
                         <barButtonItem key="backBarButtonItem" title="Postfeed" id="dYJ-RG-qdl"/>
                         <barButtonItem key="leftBarButtonItem" title="User Name" id="V2a-my-wva">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="fox-0U-2g2" kind="push" id="cgc-bt-lEP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="tab_bar_icons_photo_camp_camera_btn_bar_item" id="b1G-Pz-FZK">
+                            <connections>
+                                <segue destination="e8m-B7-UeJ" kind="modal" id="I6f-Ik-fsN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="accountButton" destination="V2a-my-wva" id="GPI-3H-xl7"/>
-                        <outlet property="photoButton" destination="xnx-ie-5e3" id="ZEu-ql-hZf"/>
+                        <outlet property="photoButton" destination="b1G-Pz-FZK" id="nTt-eZ-DSy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZq-XZ-Kim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1633" y="112"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="cLm-zk-RrT">
+            <objects>
+                <viewController storyboardIdentifier="cameraVC" id="e8m-B7-UeJ" customClass="cameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jbd-Pn-WIt"/>
+                        <viewControllerLayoutGuide type="bottom" id="qQJ-L7-zdc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kti-Zs-7Ht">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dCa-EC-cGw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KbJ-wT-1aY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2201" y="405"/>
         </scene>
         <!--Account View Controller - My profile-->
         <scene sceneID="X4f-HZ-5cQ">
@@ -219,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xn0-F1-rKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="-163"/>
+            <point key="canvasLocation" x="2201" y="-312"/>
         </scene>
         <!--Home Nav Controller-->
         <scene sceneID="Jdd-Kg-gwM">
@@ -242,7 +267,7 @@
     </scenes>
     <resources>
         <image name="longbridge" width="320" height="568"/>
-        <image name="tab_bar_icons_photo_camp_btn_camera" width="110" height="110"/>
+        <image name="tab_bar_icons_photo_camp_camera_btn_bar_item" width="24" height="24"/>
     </resources>
     <color key="tintColor" red="0.33183220559999999" green="0.86593495239999996" blue="0.32310868580000002" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
