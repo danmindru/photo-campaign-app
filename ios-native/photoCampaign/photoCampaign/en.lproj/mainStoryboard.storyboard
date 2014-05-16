@@ -218,11 +218,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z8x-qf-Ew1">
-                                <rect key="frame" x="0.0" y="44" width="320" height="404"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NYJ-Uk-eiL">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYJ-Uk-eiL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -247,96 +243,163 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwo-9A-6eu">
-                                <rect key="frame" x="160" y="444" width="80" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Sepia">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sepiaEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="HZo-KB-t94"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V3-p2-DZ3">
-                                <rect key="frame" x="80" y="444" width="80" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Transfer">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="transferEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="Riw-yf-oxb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VT0-yr-7iN">
-                                <rect key="frame" x="240" y="506" width="80" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Mono">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toneEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="x9o-ur-WZG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htP-zX-4yL">
-                                <rect key="frame" x="160" y="506" width="80" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Process">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="processEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="7RB-ep-epZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkY-Uc-LLH">
-                                <rect key="frame" x="80" y="506" width="80" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Fade">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="fadeEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="Hu2-dI-eMS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFz-ZC-erg">
-                                <rect key="frame" x="0.0" y="444" width="80" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="noEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="nee-p3-ZmR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNj-5u-mPR">
-                                <rect key="frame" x="240" y="444" width="80" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Noir">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="noirEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="0fo-5h-6qq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4Y-1D-J1c">
-                                <rect key="frame" x="0.0" y="506" width="80" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Tonal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tonalEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="lWq-rV-u8y"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dv0-Av-se2">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z8x-qf-Ew1">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="364"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="364" id="ErZ-L4-Jhj"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwo-9A-6eu">
+                                        <rect key="frame" x="240" y="444" width="81" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Sepia">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sepiaEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="HZo-KB-t94"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V3-p2-DZ3">
+                                        <rect key="frame" x="160" y="444" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Transfer">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="transferEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="Riw-yf-oxb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VT0-yr-7iN">
+                                        <rect key="frame" x="80" y="444" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Mono">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="monoEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="LWO-S7-wFR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htP-zX-4yL">
+                                        <rect key="frame" x="0.0" y="444" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Process">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="processEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="7RB-ep-epZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkY-Uc-LLH">
+                                        <rect key="frame" x="240" y="365" width="81" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Fade">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="fadeEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="Hu2-dI-eMS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFz-ZC-erg">
+                                        <rect key="frame" x="0.0" y="365" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="425-ui-cUw"/>
+                                            <constraint firstAttribute="height" constant="80" id="TCB-un-aXS"/>
+                                        </constraints>
+                                        <state key="normal" title="Normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="nee-p3-ZmR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNj-5u-mPR">
+                                        <rect key="frame" x="160" y="365" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="Yfe-rz-0z4"/>
+                                        </constraints>
+                                        <state key="normal" title="Noir">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noirEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="0fo-5h-6qq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4Y-1D-J1c">
+                                        <rect key="frame" x="80" y="365" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="QhV-KP-4Ni"/>
+                                        </constraints>
+                                        <state key="normal" title="Tonal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tonalEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="lWq-rV-u8y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Iwo-9A-6eu" firstAttribute="leading" secondItem="zkY-Uc-LLH" secondAttribute="leading" id="4JI-y3-Ccr"/>
+                                    <constraint firstItem="z8x-qf-Ew1" firstAttribute="leading" secondItem="aFz-ZC-erg" secondAttribute="leading" id="6PP-n3-7xt"/>
+                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="top" secondItem="Iwo-9A-6eu" secondAttribute="top" id="7TQ-Rs-OJT"/>
+                                    <constraint firstItem="aFz-ZC-erg" firstAttribute="top" secondItem="z8x-qf-Ew1" secondAttribute="bottom" constant="1" id="7sU-PJ-juf"/>
+                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="top" secondItem="VT0-yr-7iN" secondAttribute="top" id="Bbb-a4-bhJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Iwo-9A-6eu" secondAttribute="bottom" id="Bm9-ZQ-F3e"/>
+                                    <constraint firstItem="htP-zX-4yL" firstAttribute="top" secondItem="VT0-yr-7iN" secondAttribute="top" id="Dls-GM-z2N"/>
+                                    <constraint firstItem="w4Y-1D-J1c" firstAttribute="top" secondItem="aFz-ZC-erg" secondAttribute="top" id="Etf-iz-YxM"/>
+                                    <constraint firstItem="aFz-ZC-erg" firstAttribute="trailing" secondItem="htP-zX-4yL" secondAttribute="trailing" id="J1z-F2-1ym"/>
+                                    <constraint firstItem="w4Y-1D-J1c" firstAttribute="trailing" secondItem="VT0-yr-7iN" secondAttribute="trailing" id="Jbm-hD-aod"/>
+                                    <constraint firstItem="z8x-qf-Ew1" firstAttribute="trailing" secondItem="zkY-Uc-LLH" secondAttribute="trailing" id="KhP-Gh-ALw"/>
+                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="bottom" secondItem="VT0-yr-7iN" secondAttribute="bottom" id="Lbm-Jd-JB0"/>
+                                    <constraint firstItem="z8x-qf-Ew1" firstAttribute="centerX" secondItem="Dv0-Av-se2" secondAttribute="centerX" id="LzL-Mw-5iu"/>
+                                    <constraint firstItem="FNj-5u-mPR" firstAttribute="bottom" secondItem="w4Y-1D-J1c" secondAttribute="bottom" id="Mtu-PJ-OKx"/>
+                                    <constraint firstAttribute="bottom" secondItem="aFz-ZC-erg" secondAttribute="bottom" constant="79" id="Pin-vD-EhY"/>
+                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="trailing" secondItem="FNj-5u-mPR" secondAttribute="trailing" id="SBl-yo-lSw"/>
+                                    <constraint firstItem="aFz-ZC-erg" firstAttribute="bottom" secondItem="w4Y-1D-J1c" secondAttribute="bottom" id="U6F-sS-sGn"/>
+                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="top" secondItem="FNj-5u-mPR" secondAttribute="top" id="Vyb-l4-eeL"/>
+                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="trailing" secondItem="Iwo-9A-6eu" secondAttribute="trailing" id="WrL-qb-mGf"/>
+                                    <constraint firstItem="htP-zX-4yL" firstAttribute="bottom" secondItem="VT0-yr-7iN" secondAttribute="bottom" id="aNy-vf-gFl"/>
+                                    <constraint firstItem="w4Y-1D-J1c" firstAttribute="leading" secondItem="aFz-ZC-erg" secondAttribute="trailing" id="ah3-SH-8j8"/>
+                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="bottom" secondItem="Iwo-9A-6eu" secondAttribute="bottom" id="crF-Dh-x7y"/>
+                                    <constraint firstItem="w4Y-1D-J1c" firstAttribute="leading" secondItem="VT0-yr-7iN" secondAttribute="leading" id="eCG-Di-aJu"/>
+                                    <constraint firstItem="FNj-5u-mPR" firstAttribute="top" secondItem="w4Y-1D-J1c" secondAttribute="top" id="eLn-79-wxP"/>
+                                    <constraint firstAttribute="trailing" secondItem="zkY-Uc-LLH" secondAttribute="trailing" id="igb-7w-WAQ"/>
+                                    <constraint firstItem="htP-zX-4yL" firstAttribute="top" secondItem="z8x-qf-Ew1" secondAttribute="bottom" constant="80" id="mFI-ZP-tP2"/>
+                                    <constraint firstItem="FNj-5u-mPR" firstAttribute="leading" secondItem="7V3-p2-DZ3" secondAttribute="leading" id="mK0-nc-VQp"/>
+                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="bottom" secondItem="FNj-5u-mPR" secondAttribute="bottom" id="n1Q-CP-rlH"/>
+                                    <constraint firstItem="z8x-qf-Ew1" firstAttribute="top" secondItem="Dv0-Av-se2" secondAttribute="top" id="nSy-pl-Nbd"/>
+                                    <constraint firstItem="z8x-qf-Ew1" firstAttribute="leading" secondItem="Dv0-Av-se2" secondAttribute="leading" id="nnK-83-4jy"/>
+                                    <constraint firstItem="FNj-5u-mPR" firstAttribute="leading" secondItem="w4Y-1D-J1c" secondAttribute="trailing" id="os1-DH-dsG"/>
+                                    <constraint firstItem="htP-zX-4yL" firstAttribute="leading" secondItem="aFz-ZC-erg" secondAttribute="leading" id="uMc-CL-WF8"/>
+                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="leading" secondItem="FNj-5u-mPR" secondAttribute="trailing" id="yNL-Qj-dZ0"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Dv0-Av-se2" secondAttribute="bottom" id="1ir-zz-RI0"/>
+                            <constraint firstItem="Dv0-Av-se2" firstAttribute="leading" secondItem="NYJ-Uk-eiL" secondAttribute="leading" id="BsU-8P-ws2"/>
+                            <constraint firstItem="Dv0-Av-se2" firstAttribute="top" secondItem="NYJ-Uk-eiL" secondAttribute="bottom" id="HKS-Id-3ga"/>
+                            <constraint firstItem="NYJ-Uk-eiL" firstAttribute="trailing" secondItem="Dv0-Av-se2" secondAttribute="trailing" id="MFv-0N-aJB"/>
+                            <constraint firstAttribute="trailing" secondItem="NYJ-Uk-eiL" secondAttribute="trailing" id="YeZ-l6-i5l"/>
+                            <constraint firstItem="Dv0-Av-se2" firstAttribute="leading" secondItem="U6C-cd-HNh" secondAttribute="leading" id="dAx-DA-2IX"/>
+                            <constraint firstItem="NYJ-Uk-eiL" firstAttribute="top" secondItem="U6C-cd-HNh" secondAttribute="top" id="gdD-os-9pD"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="selectedPhotoView" destination="z8x-qf-Ew1" id="3QG-Cx-af4"/>
