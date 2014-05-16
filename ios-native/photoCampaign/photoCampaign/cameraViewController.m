@@ -55,7 +55,12 @@
 
 #pragma mark - Camera methods (and gallery)
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+	//navigate to editing controller
+	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
+	photoeditViewController *photoNavVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"photoNavVC"];
+	photoNavVC.photoInfo = info;
 	
+	[(UINavigationController*)picker presentViewController:photoNavVC animated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "homeNavController.h"
+#import "photoeditViewController.h"
 
 @interface cameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

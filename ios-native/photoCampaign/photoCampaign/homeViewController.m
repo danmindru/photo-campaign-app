@@ -40,10 +40,7 @@
 	
 	//setup refresh
 	UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-	
-	refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull down and release to refresh"];
 	[refresh addTarget:self action:@selector(httpLoadPostData) forControlEvents:UIControlEventValueChanged];
-	
 	self.refreshControl = refresh;
 	
 	//additional table view setup

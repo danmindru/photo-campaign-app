@@ -46,9 +46,6 @@
 	loadedUserObject = [user readFromPlist:userPlistURL];
 	NSArray *allUserData = [loadedUserObject objectAtIndex:0];
 	
-	//define colors
-	UIColor *lightGrayColor = [[UIColor alloc] initWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
-	
 	//convert date before displaying
 	//convert the DB datetime into timestamp
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -63,19 +60,21 @@
 	NSString *postPrettyDate = [prettyDateFormatter stringFromDate:postCreatedDate];
 	
 	//add label for name and surname
-	UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 280, 28)];
+	UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 260, 280, 28)];
 	[nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:34]];
-	nameLabel.textColor = [UIColor blackColor];
+	[nameLabel setTextColor:[UIColor whiteColor]];
 	nameLabel.text = [[NSString alloc] initWithFormat:@"%@ %@", [allUserData valueForKey:@"firstName"], [allUserData valueForKey:@"lastName"]];
 	
 	//add label for email
-	UILabel *emailLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 75, 280, 20)];
+	UILabel *emailLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 315, 280, 20)];
 	[emailLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:22]];
+	[emailLabel setTextColor:[UIColor whiteColor]];
 	emailLabel.text = [[NSString alloc] initWithFormat:@"%@", [allUserData valueForKey:@"email"]];
 	
 	//add "profile created" date
-	UILabel *createdLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 130, 280, 30)];
+	UILabel *createdLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 340, 280, 30)];
 	[createdLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:14]];
+	[createdLabel setTextColor:[UIColor lightGrayColor]];
 	createdLabel.text = [[NSString alloc] initWithFormat:@"Member since %@", postPrettyDate];
 	
 	//add profile image
@@ -84,13 +83,13 @@
 	UIImage *loadedProfilePhoto = [UIImage imageWithData:[NSData dataWithContentsOfURL:photoURL]];
 	
 	UIImageView *profilePhotoView = [[UIImageView alloc] initWithImage:loadedProfilePhoto];
-	float profilePhotoHeight = loadedProfilePhoto.size.height*320/loadedProfilePhoto.size.width;
-	profilePhotoView.backgroundColor = [[UIColor alloc] initWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
-	[profilePhotoView setFrame:CGRectMake(0, 170, 320, profilePhotoHeight)];
+	//set imageview to scale image to it's frame
+	[profilePhotoView setContentMode:UIViewContentModeScaleAspectFill];
+	[profilePhotoView setClipsToBounds:YES];
+	profilePhotoView.backgroundColor = [UIColor whiteColor];
+	[profilePhotoView setFrame:CGRectMake(0, 0, 320, 240)];
 
 	//add UI to scrollview
-	//set the background of the view first
-	self.accountScrollView.backgroundColor = lightGrayColor;
 	[self.accountScrollView addSubview:nameLabel];
 	[self.accountScrollView addSubview:emailLabel];
 	[self.accountScrollView addSubview:createdLabel];

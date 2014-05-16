@@ -21,6 +21,7 @@ postfeedview (homeview):
  ☐ delete posts (if owner)
  ☐ delete posts if deleted on the server!
 cameraView/post:
+ ☐ add button for library on CameraView
 accountview:
  ☐ make photo as wide as the screen with a fixed height
  ☐ make account editable

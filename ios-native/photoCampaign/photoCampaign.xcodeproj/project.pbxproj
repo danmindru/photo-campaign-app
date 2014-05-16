@@ -25,6 +25,8 @@
 		4C4AE665191CF09A00F73121 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4AE664191CF09A00F73121 /* loginViewController.m */; };
 		4C5AB3DA1924F21600BF692D /* postTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AB3D91924F21600BF692D /* postTableViewCell.m */; };
 		4C5AB3DD19254EFD00BF692D /* cameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AB3DC19254EFD00BF692D /* cameraViewController.m */; };
+		4C5AB3E319261C2300BF692D /* photoeditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AB3E219261C2300BF692D /* photoeditViewController.m */; };
+		4C5AB3E61926353E00BF692D /* photopublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AB3E51926353E00BF692D /* photopublishViewController.m */; };
 		4C5BA82019240E4800485315 /* accountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5BA81E19240C3300485315 /* accountViewController.m */; };
 		4C6CAE62191CFD7900E1DE48 /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CAE61191CFD7900E1DE48 /* user.m */; };
 		4C6CAE71191E748A00E1DE48 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CAE70191E748A00E1DE48 /* homeViewController.m */; };
@@ -73,6 +75,10 @@
 		4C5AB3D91924F21600BF692D /* postTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = postTableViewCell.m; sourceTree = "<group>"; };
 		4C5AB3DB19254EFD00BF692D /* cameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraViewController.h; sourceTree = "<group>"; };
 		4C5AB3DC19254EFD00BF692D /* cameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cameraViewController.m; sourceTree = "<group>"; };
+		4C5AB3E119261C2300BF692D /* photoeditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = photoeditViewController.h; sourceTree = "<group>"; };
+		4C5AB3E219261C2300BF692D /* photoeditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = photoeditViewController.m; sourceTree = "<group>"; };
+		4C5AB3E41926353E00BF692D /* photopublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = photopublishViewController.h; path = ../photopublishViewController.h; sourceTree = "<group>"; };
+		4C5AB3E51926353E00BF692D /* photopublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = photopublishViewController.m; path = ../photopublishViewController.m; sourceTree = "<group>"; };
 		4C5BA81D19240C3200485315 /* accountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = accountViewController.h; sourceTree = "<group>"; };
 		4C5BA81E19240C3300485315 /* accountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = accountViewController.m; sourceTree = "<group>"; };
 		4C6CAE60191CFD7900E1DE48 /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
@@ -168,6 +174,10 @@
 				4C4AE664191CF09A00F73121 /* loginViewController.m */,
 				4C5AB3DB19254EFD00BF692D /* cameraViewController.h */,
 				4C5AB3DC19254EFD00BF692D /* cameraViewController.m */,
+				4C5AB3E119261C2300BF692D /* photoeditViewController.h */,
+				4C5AB3E219261C2300BF692D /* photoeditViewController.m */,
+				4C5AB3E41926353E00BF692D /* photopublishViewController.h */,
+				4C5AB3E51926353E00BF692D /* photopublishViewController.m */,
 				4C6CAE60191CFD7900E1DE48 /* user.h */,
 				4C6CAE61191CFD7900E1DE48 /* user.m */,
 				4C30251E19221268003262B9 /* post.h */,
@@ -349,9 +359,11 @@
 				4C6CAE71191E748A00E1DE48 /* homeViewController.m in Sources */,
 				4C4AE63F191CE2F000F73121 /* main.m in Sources */,
 				4C6CAE7A191E8D6E00E1DE48 /* statics.m in Sources */,
+				4C5AB3E61926353E00BF692D /* photopublishViewController.m in Sources */,
 				4C30252019221268003262B9 /* post.m in Sources */,
 				4C5AB3DD19254EFD00BF692D /* cameraViewController.m in Sources */,
 				4C30251D19217C36003262B9 /* feedTableView.m in Sources */,
+				4C5AB3E319261C2300BF692D /* photoeditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
