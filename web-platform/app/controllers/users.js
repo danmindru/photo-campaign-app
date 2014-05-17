@@ -389,14 +389,14 @@ exports.requiresLogin = function(req, res, next) {
 					});
 				}
 				else{
-					res.send(400, {
+					return res.send(400, {
 						message: 'User not allowed'
 					});
 				}
 				
 			}
 			else{
-				res.send(400, {
+				return res.send(400, {
 					message: 'User is not found'
 				});
 			}
