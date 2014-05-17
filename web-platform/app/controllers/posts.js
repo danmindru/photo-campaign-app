@@ -27,6 +27,7 @@ exports.create = function(req, res) {
     }
     else{
     	//request coming from iOS device
+    	console.log(req.body);
     	return res.jsonp({message:req.body});
     }
   } else {
