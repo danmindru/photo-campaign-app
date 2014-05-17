@@ -21,15 +21,8 @@ exports.create = function(req, res) {
 	isiOS = req.body.isiOS;
 
 	if (!req.files || req.files.postPhoto.size === 0) {
-    if(!isiOS){
-    	uploadMessage = 'No file uploaded at ' + new Date().toString();
-    	res.send(400, {error:uploadMessage});
-    }
-    else{
-    	//request coming from iOS device
-    	console.log(req.body);
-    	return res.jsonp({message:req.body});
-    }
+    uploadMessage = 'No file uploaded at ' + new Date().toString();
+    res.send(400, {error:uploadMessage});
   } else {
     var file = req.files.postPhoto;
     //append filename and date to file upload
@@ -43,15 +36,28 @@ exports.create = function(req, res) {
 		    } else {
 				uploadMessage = '<b>"' + file.name + '"<b> uploaded to the server at ' + new Date().toString();
         
-        //store data from req params
-				postData.title = req.param('title');
-				postData.description = req.param('description');
+        if(!isiOS){
+        	//store data from req params
+					postData.title = req.param('title');
+					postData.description = req.param('description');
+		    }
+		    else{
+		    	//handle iOS specific requests
+		    	//store data from req params
+					postData.title = req.body.title;
+					postData.description = req.body.description;
+		    }
+        
 				postData.photoURL = fileUrl.replace('./public/', '');
 
 				var post = new Post(postData);
 
 				//added missing fields
-				post.owner = req.user._id;
+				if(!isiOS){
+					post.owner = req.user._id;
+				} else {
+					post.owner = req.body._id;
+				}
 
 				//get user id from DB
 				User.findById(post.owner, function(err, user) {
