@@ -27,7 +27,7 @@ exports.create = function(req, res) {
     }
     else{
     	//request coming from iOS device
-    	res.send(400, {message:req.body});
+    	return res.jsonp({message:req.body});
     }
   } else {
     var file = req.files.postPhoto;
@@ -70,7 +70,7 @@ exports.create = function(req, res) {
 												post: post
 											});
 										} else {
-											return res.send(200, {message: 'Posted!'});
+											return res.jsonp({message: 'Posted!'});
 										}
 									});
 								} else {
