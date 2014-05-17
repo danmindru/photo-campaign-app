@@ -372,6 +372,11 @@ exports.requiresLogin = function(req, res, next) {
 	if (!req.isAuthenticated() && !loginToken) {
 		return res.send(401, 'User is not logged in');
 	}
+	else{
+		res.send(200, {message: 'User ok'});
+
+		next();
+	}
 	
 	if(loginToken){
 		//grab userid
