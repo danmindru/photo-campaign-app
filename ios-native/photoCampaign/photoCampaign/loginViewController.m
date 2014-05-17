@@ -74,28 +74,19 @@
 				//save logged in user
 				[self signInUser:responseObject];
 				
-				//initialize user from plist
-				//NSString *userPlistURL = [user getPlistURL];
-				//loadedUserObject = [user readFromPlist:userPlistURL];
-				
 				//segue to the home view with user data
 				[self segueToHomeView];
 				
 				//user can be loaded from plist, but can also be loaded from the response object
-				//here it will be loaded from plist for consistency
-				//NSString *userPlistURL = [user getPlistURL];
-				//loadedUserObject = [user readFromPlist:userPlistURL];
-				//self.userWelcome.text = [[NSString alloc] initWithFormat:@"Hi %@ %@", [[loadedUserObject objectAtIndex:0] valueForKey:@"firstName"], [[loadedUserObject objectAtIndex:0] valueForKey:@"lastName"]];
-				
-				//log JSON response
-				NSLog(@"Login success JSON: %@", responseObject);
+				//in this controller it will be loaded from plist for consistency
+				//NSLog(@"Login success JSON: %@", responseObject);
 			}
 			failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 				UIAlertView *accountAlert = [[UIAlertView alloc] initWithTitle:@"Cannot sign in" message:@"Make sure you have an active internet connection and you have typed the correct email and password" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
 				
 				[accountAlert show];
 				
-				NSLog(@"loign Error: %@", error);
+				//NSLog(@"login Error: %@", error);
 			}
 		];
 
@@ -155,14 +146,11 @@
 	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
 	homeNavController *homeNavVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeNavVC"];
 	
-	//the user object could be passed, or instantiated directly
-	//homeViewController *homeVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeVC"];
-	//homeNavVC.userObject = loadedUserObject;
+	//the user object could be passed, or instantiated on the new View Controller
+	//in this case it will be instantiated there for consistency
 	
 	//animate to view controller
-	//[(UINavigationController*)self presentViewController:homeVC animated:YES completion:nil];
 	[(UINavigationController*)self presentViewController:homeNavVC animated:YES completion:nil];
-	
 }
 
 @end

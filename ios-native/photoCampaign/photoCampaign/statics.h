@@ -12,6 +12,7 @@
 #define LOGIN_SLUG @"/auth/signin"
 #define IMAGE_BASE_SLUG @"/"
 #define POST_FEED @"/posts"
+#define POST_CREATE_SLUG @"/posts"
 
 @interface statics : NSObject
 
