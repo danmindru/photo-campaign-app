@@ -387,6 +387,8 @@ exports.requiresLogin = function(req, res, next) {
 					res.send(200, {
 						message: 'User ok'
 					});
+
+					next();
 				}
 				else{
 					return res.send(400, {
@@ -402,8 +404,6 @@ exports.requiresLogin = function(req, res, next) {
 			}
 		});
 	}
-
-	next();
 };
 
 /**
