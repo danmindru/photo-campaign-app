@@ -20,7 +20,7 @@ exports.create = function(req, res) {
 	uploadMessage = '',
 	isiOS = req.body.isiOS;
 
-	if (!req.files.postPhoto || req.files.postPhoto.size === 0) {
+	if (!req.files || req.files.postPhoto.size === 0) {
     if(!isiOS){
     	uploadMessage = 'No file uploaded at ' + new Date().toString();
     	res.send(400, {error:uploadMessage});
