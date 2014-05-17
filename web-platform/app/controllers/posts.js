@@ -17,11 +17,18 @@ exports.create = function(req, res) {
 	//read post data
 	var postData = {},
 	fileUrl = './public/uploads/',
-	uploadMessage = '';
+	uploadMessage = '',
+	isiOS = req.body.isiOS;
 
 	if (!req.files.postPhoto || req.files.postPhoto.size === 0) {
-    uploadMessage = 'No file uploaded at ' + new Date().toString();
-    res.send(400, {error:uploadMessage});
+    if(!isiOS){
+    	uploadMessage = 'No file uploaded at ' + new Date().toString();
+    	res.send(400, {error:uploadMessage});
+    }
+    else{
+    	//request coming from iOS device
+    	res.send(400, {message:req.body});
+    }
   } else {
     var file = req.files.postPhoto;
     //append filename and date to file upload
