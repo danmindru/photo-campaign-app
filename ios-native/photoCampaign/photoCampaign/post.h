@@ -27,5 +27,6 @@
 + (void) removeAllPosts:(NSString *)plistURL;
 + (NSMutableArray *)readFromPlist:(NSString *)plistURL;
 + (NSString *) getPlistURL;
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 
 @end

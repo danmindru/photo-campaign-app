@@ -53,7 +53,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Camera methods (and gallery)
+#pragma mark - Camera methods (and gallery) - also navigation to edit scene
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
 	//navigate to editing controller
 	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
@@ -63,6 +63,7 @@
 	[(UINavigationController*)picker presentViewController:photoNavVC animated:YES completion:nil];
 }
 
+#pragma mark - Navigation
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
 	//navigate back to feed
 	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
@@ -70,16 +71,5 @@
 	
 	[(UINavigationController*)picker presentViewController:homeNavVC animated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

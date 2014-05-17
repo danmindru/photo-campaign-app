@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "homeNavController.h"
+#import "photopublishViewController.h"
 
 @interface photoeditViewController : UIViewController
 

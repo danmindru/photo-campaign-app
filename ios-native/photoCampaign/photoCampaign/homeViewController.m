@@ -61,9 +61,6 @@
 	
 	[self.accountButton setTitle:[[NSString alloc] initWithFormat:@"%@ %@", [allUserData valueForKey:@"firstName"], [allUserData valueForKey:@"lastName"]]];
 	
-	//set footer/header
-	[self setTableFooterOrHeader];
-	
 	//load posts
 	[self httpLoadPostData];
 }
@@ -100,6 +97,7 @@
 		//update UI after image load
 		dispatch_async(dispatch_get_main_queue(), ^{
 			//update the UI on the main thread
+			[oneCell.postImage setClipsToBounds:YES];
 			[oneCell.postImage setImage:loadedPostPhoto];
 			//set imageview to scale image to it's frame
 			[oneCell.postImage setContentMode:UIViewContentModeScaleAspectFill];
@@ -193,22 +191,5 @@
 	//stop refresh animation
 	[self.refreshControl endRefreshing];
 }
-
-
-- (void)setTableFooterOrHeader{
-}
-
-#pragma mark - Button actions
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

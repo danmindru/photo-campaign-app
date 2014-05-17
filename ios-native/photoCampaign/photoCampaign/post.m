@@ -137,4 +137,17 @@
 	[NSKeyedArchiver archiveRootObject:itemsHolder toFile:plistURL];
 }
 
+#pragma mark - Utils
+
+//resize image file
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // 1.0 to force exact pixel size, 0.0 is retina
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 1.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 @end

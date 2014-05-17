@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "homeNavController.h"
 
-@interface photopublishViewController : UIViewController
+@interface photopublishViewController : UIViewController <UITextFieldDelegate>
+
+@property UIImage *editedImage;
 
 @end

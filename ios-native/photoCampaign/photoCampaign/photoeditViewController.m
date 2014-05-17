@@ -7,6 +7,7 @@
 //
 
 #import "photoeditViewController.h"
+#import "post.h"
 
 @interface photoeditViewController (){
 	CIContext *currentContext;
@@ -39,8 +40,11 @@
 	//use black background
 	[self.view setBackgroundColor:[UIColor blackColor]];
 	
-	//apply photo
+	//apply photo (resized to half)
 	self.photo = self.photoInfo[UIImagePickerControllerOriginalImage];
+	UIImage *resizedPhoto = [post imageWithImage:self.photo scaledToSize:CGSizeMake(self.photo.size.width/2, self.photo.size.height/2)];
+	self.photo = resizedPhoto;
+	
 	//adjust the imageView to fit all photos
 	[self.selectedPhotoView setContentMode:UIViewContentModeScaleAspectFill];
 	//add photo to view
@@ -69,18 +73,6 @@
 
 - (BOOL)prefersStatusBarHidden{
 	return YES;
-}
-
-- (IBAction)goToPublishing:(id)sender {
-}
-
-- (IBAction)cancelEditingAction:(id)sender {
-	//set the view controller as homeStoryboard
-	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
-	homeNavController *homeNavVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeNavVC"];
-	
-	//animate to view controller
-	[(UINavigationController*)self presentViewController:homeNavVC animated:YES completion:nil];
 }
 
 #pragma mark - Photo filters
@@ -153,15 +145,23 @@
 	return filteredUIImage;
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)cancelEditingAction:(id)sender {
+	//set the view controller as homeStoryboard
+	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
+	homeNavController *homeNavVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeNavVC"];
+	
+	//animate to view controller
+	[(UINavigationController*)self presentViewController:homeNavVC animated:YES completion:nil];
 }
-*/
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	if([[segue identifier] isEqualToString:@"publishPost"]){
+		photopublishViewController *ppv = [segue destinationViewController];
+		//get the selected image and pass the UIImage
+		ppv.editedImage = self.selectedPhotoView.image;
+	}
+}
 
 @end

@@ -1,33 +1,43 @@
 loginview:
- ☐ add padding to inputs
- ☐ make keyboard dissapear
+ ✔ add padding to inputs @done (14-05-17 11:29)
+ ✔ make keyboard dissapear @done (14-05-17 11:29)
  ✔ add redirect for signup (browser) @done (14-05-12 17:26)
  ☐ make inputs disappear and show loader after button press, return if error
- ☐ display error message when account info is incorrect
+ ✔ display error message when account info is incorrect @done (14-05-17 11:29)
  ☐ implement login for multiple iOS devices
+ ☐ login with social accounts
 postfeedview (homeview): 
- ☐ hide camera while scrolling down
- ☐ show camera while scrolling up
+ ✔ hide camera while scrolling down @done (14-05-17 11:29)
+ ✔ show camera while scrolling up @done (14-05-17 11:29)
  ☐ change tableview separator
  ✔ create the post class with coder & cache to plist @done (14-05-14 09:04)
  ✔ prevent overwriting plist if no new post data is available @done (14-05-14 09:04)
  ☐ display ratings in view cell
  ☐ create detailed view for each post
- ☐ remove post data at logout
+ ✔ remove post data at logout @done (14-05-17 11:30)
  ☐ improve offline post reading
  ☐ save images to disk
- ☐ use pull down to refresh
+ ✔ use pull down to refresh @done (14-05-17 11:30)
  ☐ display 'no posts to show if JSON empty'
  ☐ delete posts (if owner)
  ☐ delete posts if deleted on the server!
+ ☐ implement hashtags
+ ☐ add table footer/header
 cameraView/post:
  ☐ add button for library on CameraView
+ ☐ use auto layout for better arrangement of photo effect buttons (3.5 & 4 in)
 accountview:
- ☐ make photo as wide as the screen with a fixed height
+ ✔ make photo as wide as the screen with a fixed height @done (14-05-17 11:30)
  ☐ make account editable
- ☐ reload user info for every account access if logged in
+ ✔ reload user info for every account access if logged in @done (14-05-17 11:30)
  ☐ show post info on profile
  ☐ show own posts on profile
+ ☐ add social accounts
+publishview:
+ ☐ add hashtags to description view
+ ☐ share post on social accounts
+ ☐ add 'back' for final publish view to allow editing of photo effects
 other:
  ☐ statics could include PLIST names
- ☐ add 'cannot load' default replacement image
+ ✔ add 'cannot load' default replacement image @done (14-05-17 11:30)
+ ☐ implement resize photo method in 'post' class
