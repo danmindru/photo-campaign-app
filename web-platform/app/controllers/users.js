@@ -382,8 +382,7 @@ exports.requiresLogin = function(req, res, next) {
 		}).exec(function(err, user) {
 			if (!err && user) {
 				
-				if(loginToken === user.BLA){
-				//if(loginToken === user.iOSToken){
+				if(loginToken === user.iOSToken){
 					res.send(200, {
 						message: 'User ok'
 					});
