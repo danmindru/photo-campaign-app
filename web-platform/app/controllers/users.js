@@ -375,6 +375,7 @@ exports.requiresLogin = function(req, res, next) {
 	else{
 		//continue, user is okay
 		next();
+		return true;
 	}
 	
 	if(loginToken){

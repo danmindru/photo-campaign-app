@@ -22,7 +22,7 @@ exports.create = function(req, res) {
 
 	if (!req.files || req.files.postPhoto.size === 0) {
     uploadMessage = 'No file uploaded at ' + new Date().toString();
-    res.send(400, {error:uploadMessage});
+    return res.send(400, {error:uploadMessage});
   } else {
     var file = req.files.postPhoto;
     //append filename and date to file upload
