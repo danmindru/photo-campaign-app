@@ -156,7 +156,7 @@
 			 [self reloadPostFeed];
 			 
 			 //log JSON response
-			 NSLog(@"Campaign success JSON: %@", responseObject);
+			 //NSLog(@"Campaign success JSON: %@", responseObject);
 		 }
 		 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 			 UIAlertView *accountAlert = [[UIAlertView alloc] initWithTitle:@"Problem reading feed" message:@"Cannot read the campaign post feed. Please make sure there is an active internet connection" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];

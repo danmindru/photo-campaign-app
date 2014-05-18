@@ -29,11 +29,11 @@ exports.create = function(req, res) {
     fileUrl += new Date().getTime().toString() + file.name;
 
    	fs.rename(file.path, fileUrl, function(err) {
-		    if(err) {
-					return res.send({
-		      	error: 'Error while moving the file: ' + err
-					});
-		    } else {
+	    if(err) {
+				return res.send({
+	      	error: 'Error while moving the file: ' + err
+				});
+	    } else {
 				uploadMessage = '<b>"' + file.name + '"<b> uploaded to the server at ' + new Date().toString();
         
         if(!isiOS){
