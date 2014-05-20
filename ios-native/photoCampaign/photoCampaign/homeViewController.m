@@ -163,7 +163,7 @@
 			 
 			 [accountAlert show];
 			 
-			 NSLog(@"Campaign feed Error: %@", error);
+			 //NSLog(@"Campaign feed Error: %@", error);
 		 }
 	 ];
 
