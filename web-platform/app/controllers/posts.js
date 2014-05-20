@@ -21,6 +21,7 @@ exports.create = function(req, res) {
 	isiOS = req.body.isiOS;
 
 	if (!req.files || req.files.postPhoto.size === 0) {
+		console.log('no file error');
     uploadMessage = 'No file uploaded at ' + new Date().toString();
     return res.send(400, {error:uploadMessage});
   } else {
@@ -30,6 +31,7 @@ exports.create = function(req, res) {
 
    	fs.rename(file.path, fileUrl, function(err) {
 	    if(err) {
+	    	console.log('could not move file error');
 				return res.send({
 	      	error: 'Error while moving the file: ' + err
 				});
@@ -81,18 +83,21 @@ exports.create = function(req, res) {
 										}
 									});
 								} else {
+									console.log('the users campaign has been deleted error');
 									return res.send(500, {
 										error: 'The user is assigned to a campaign that has been deleted or deactivated, therefore it cannot post.'
 									});
 								}
 							});
 						} else {
+							console.log('User does not belong to campaign error');
 							return res.send(500, {
 								error: 'User must belong to a campaign to post'
 							});
 						}
 					}
 					else{
+						console.log('User not found error');
 						//user not found
 						res.send(400, {
 							error: 'User is not found'
