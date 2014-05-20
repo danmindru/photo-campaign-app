@@ -366,12 +366,10 @@ exports.userByID = function(req, res, next, id) {
  * Require login routing middleware
  */
 exports.requiresLogin = function(req, res, next) {
-	console.log('started logging in');
 	//iOS login token
 	var loginToken = req.body.iOSToken;
 
 	if (!req.isAuthenticated() && !loginToken) {
-		console.log('User is not logged in error');
 		return res.send(401, 'User is not logged in');
 	}
 	else{
@@ -390,12 +388,10 @@ exports.requiresLogin = function(req, res, next) {
 			if (!err && user) {
 				
 				if(loginToken === user.iOSToken){
-					console.log('login token okay');
 					//user okay, go to next
 					next();
 				}
 				else{
-					console.log('User not allowed error');
 					return res.send(400, {
 						message: 'User not allowed'
 					});
@@ -403,7 +399,6 @@ exports.requiresLogin = function(req, res, next) {
 				
 			}
 			else{
-				console.log('User is not found error');
 				return res.send(400, {
 					message: 'User is not found'
 				});
