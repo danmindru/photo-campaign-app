@@ -14,6 +14,7 @@ var mongoose = require('mongoose'),
  * Create a post
  */
 exports.create = function(req, res) {
+	console.log('started upload');
 	//read post data
 	var postData = {},
 	fileUrl = './public/uploads/',
@@ -36,7 +37,7 @@ exports.create = function(req, res) {
 	      	error: 'Error while moving the file: ' + err
 				});
 	    } else {
-				uploadMessage = '<b>"' + file.name + '"<b> uploaded to the server at ' + new Date().toString();
+				//uploadMessage = '<b>"' + file.name + '"<b> uploaded to the server at ' + new Date().toString();
         
         if(!isiOS){
         	//store data from req params
@@ -80,6 +81,7 @@ exports.create = function(req, res) {
 												post: post
 											});
 										} else {
+											console.log('post uploaded');
 											return res.jsonp(post);
 										}
 									});

@@ -366,6 +366,7 @@ exports.userByID = function(req, res, next, id) {
  * Require login routing middleware
  */
 exports.requiresLogin = function(req, res, next) {
+	console.log('started logging in');
 	//iOS login token
 	var loginToken = req.body.iOSToken;
 
@@ -389,6 +390,7 @@ exports.requiresLogin = function(req, res, next) {
 			if (!err && user) {
 				
 				if(loginToken === user.iOSToken){
+					console.log('login token okay');
 					//user okay, go to next
 					next();
 				}
