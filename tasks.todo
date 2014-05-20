@@ -3,6 +3,7 @@ Web Platform:
     ☐ Separate accounts in the specified user levels (just admin by default)
     ✔ Display a list of all users @done (14-05-06 12:35)
     ☐ Allow Remove, Disable, Edit on Users for admins
+    ☐ Add search for posts, campaigns or users
   Campaings:
     ☐ Display messages for editing campaign - success/failuire
     ☐ Add states for campaigns: active/inactive, which allows users to post or not in a campaign(app/controllers/posts.js:22)

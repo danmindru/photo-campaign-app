@@ -11,7 +11,9 @@
 	</div>
 
 	<div class="list-group">
-	    <div data-ng-repeat="user in users" class="list-group-item">
+			<input type="text" class="form-control" ng-show="users" ng-model="usersearch.$" placeholder="Search all users...">
+
+	    <div data-ng-repeat="user in users | filter:usersearch" class="list-group-item">
 	        <small class="list-group-item-text">Registered: {{user.created | date:'medium'}} 
 	        	<span data-ng-show="user.campaignObject.identifier">
 	        		/ <strong>CampaignID: {{user.campaignObject.identifier}}</strong>

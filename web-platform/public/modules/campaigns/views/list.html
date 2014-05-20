@@ -5,8 +5,9 @@
             <!--<a class="btn btn-success" href="/#!/campaigns/create" data-ng-show="campaigns">Add a new campaign</a>-->
         </h1>
     </div>
+    <input type="text" class="form-control" ng-show="campaigns" ng-model="campaignsearch.$" placeholder="Search all campaigns...">
     <div class="list-group">
-        <a data-ng-repeat="campaign in campaigns" data-ng-href="#!/campaigns/{{campaign._id}}" class="list-group-item">
+        <a data-ng-repeat="campaign in campaigns | filter:campaignsearch" data-ng-href="#!/campaigns/{{campaign._id}}" class="list-group-item">
             <span class="btn btn-primary pull-right">
                 View Details <i class="glyphicon glyphicon-edit"></i>
             </span>

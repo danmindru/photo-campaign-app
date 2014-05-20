@@ -16,6 +16,9 @@
 			<li ui-route="/users" ng-class="{active: $uiRoute}">
 				<a href="/#!/users">Users</a>
 			</li>
+			<li ui-route="/posts" ng-class="{active: $uiRoute}">
+				<a href="/#!/posts">Post List</a>
+			</li>
 			<li data-ng-repeat="item in menu" data-ng-show="authentication.user" ui-route="{{item.uiRoute}}" ng-class="{active: $uiRoute}">
 				<a href="/#!/{{item.link}}">{{item.title}}</a>
 			</li>
