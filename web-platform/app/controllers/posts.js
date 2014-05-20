@@ -74,6 +74,7 @@ exports.create = function(req, res) {
 									//finally save post
 									post.save(function(err) {
 										if (err) {
+											console.log('Could not save post error');
 											return res.send('/posts', {
 												error: err.errors,
 												post: post
