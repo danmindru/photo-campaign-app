@@ -80,8 +80,10 @@
 								 @"isiOS": @1};
 
 		//make image even smaller for web? (optional)
-		UIImage *resizedImage = [post imageWithImage:self.postImage.image scaledToSize:CGSizeMake(self.postImage.image.size.width/1.2, self.postImage.image.size.height/1.2)];
-		NSData *imageData = UIImageJPEGRepresentation(resizedImage, 1);
+		//UIImage *resizedImage = [post imageWithImage:self.postImage.image scaledToSize:CGSizeMake(self.postImage.image.size.width/1.2, self.postImage.image.size.height/1.2)];
+		//NSData *imageData = UIImageJPEGRepresentation(resizedImage, 1);
+		
+		NSData *imageData = UIImageJPEGRepresentation(self.postImage.image, 1);
 		AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 		
 		[manager POST:urlString parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -98,7 +100,7 @@
 			// Hide activity indicator
 			[self.activityIndicatorView setAlpha:0.0];
 			[postError show];
-			//NSLog(@"%@", error);
+			NSLog(@"%@", error);
 		}];
 	}
 	else{

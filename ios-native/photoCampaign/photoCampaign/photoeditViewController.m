@@ -42,7 +42,7 @@
 	
 	//apply photo (resized to half)
 	self.photo = self.photoInfo[UIImagePickerControllerOriginalImage];
-	UIImage *resizedPhoto = [post imageWithImage:self.photo scaledToSize:CGSizeMake(self.photo.size.width/2, self.photo.size.height/2)];
+	UIImage *resizedPhoto = [post imageWithImage:self.photo scaledToSize:CGSizeMake(self.photo.size.width/3, self.photo.size.height/3)];
 	self.photo = resizedPhoto;
 	
 	//adjust the imageView to fit all photos
