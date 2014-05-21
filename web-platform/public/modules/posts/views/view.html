@@ -8,7 +8,7 @@
 	<h4>Created</h4>
 	<p>{{post.created | date:'medium'}}</p>
 	<h4>Campaign</h4>
-	<p>{{post.campaignObject.identifier}}</p>
+	<p data-ng-show="{{post.campaignObject.identifier}}">{{post.campaignObject.identifier}}</p>
 	<hr/>
 	<!-- delete is only shown if you are logged in. Delete should be shown only for the users that created the post and super - admin, right now any logged in user can delete (aka everybody is an admin)-->
 	<a href="/#!/" class="btn btn-danger" data-ng-show="authentication.user" data-ng-click="remove()">Delete</a><br/><br/>
