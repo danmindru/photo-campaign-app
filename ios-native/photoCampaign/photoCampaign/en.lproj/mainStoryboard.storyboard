@@ -264,7 +264,7 @@
                                         <rect key="frame" x="240" y="444" width="81" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Sepia">
+                                        <state key="normal" backgroundImage="sepia">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -275,7 +275,7 @@
                                         <rect key="frame" x="160" y="444" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Transfer">
+                                        <state key="normal" backgroundImage="transfer">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -283,10 +283,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VT0-yr-7iN">
-                                        <rect key="frame" x="80" y="444" width="80" height="80"/>
+                                        <rect key="frame" x="240" y="365" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Mono">
+                                        <state key="normal" backgroundImage="mono">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -294,10 +294,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htP-zX-4yL">
-                                        <rect key="frame" x="0.0" y="444" width="80" height="80"/>
+                                        <rect key="frame" x="80" y="444" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Process">
+                                        <state key="normal" backgroundImage="process">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -305,10 +305,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkY-Uc-LLH">
-                                        <rect key="frame" x="240" y="365" width="81" height="80"/>
+                                        <rect key="frame" x="-1" y="444" width="81" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Fade">
+                                        <state key="normal" backgroundImage="zfade">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -323,9 +323,10 @@
                                             <constraint firstAttribute="width" constant="80" id="425-ui-cUw"/>
                                             <constraint firstAttribute="height" constant="80" id="TCB-un-aXS"/>
                                         </constraints>
-                                        <state key="normal" title="Normal">
+                                        <state key="normal" backgroundImage="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" title="Normal"/>
                                         <connections>
                                             <action selector="noEffect:" destination="JAg-UU-627" eventType="touchUpInside" id="nee-p3-ZmR"/>
                                         </connections>
@@ -337,7 +338,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="Yfe-rz-0z4"/>
                                         </constraints>
-                                        <state key="normal" title="Noir">
+                                        <state key="normal" backgroundImage="noir">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -351,7 +352,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="QhV-KP-4Ni"/>
                                         </constraints>
-                                        <state key="normal" title="Tonal">
+                                        <state key="normal" backgroundImage="tonal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -360,39 +361,39 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Iwo-9A-6eu" firstAttribute="leading" secondItem="zkY-Uc-LLH" secondAttribute="leading" id="4JI-y3-Ccr"/>
+                                    <constraint firstItem="Iwo-9A-6eu" firstAttribute="leading" secondItem="zkY-Uc-LLH" secondAttribute="leading" constant="241" id="4JI-y3-Ccr"/>
                                     <constraint firstItem="z8x-qf-Ew1" firstAttribute="leading" secondItem="aFz-ZC-erg" secondAttribute="leading" id="6PP-n3-7xt"/>
                                     <constraint firstItem="7V3-p2-DZ3" firstAttribute="top" secondItem="Iwo-9A-6eu" secondAttribute="top" id="7TQ-Rs-OJT"/>
                                     <constraint firstItem="aFz-ZC-erg" firstAttribute="top" secondItem="z8x-qf-Ew1" secondAttribute="bottom" constant="1" id="7sU-PJ-juf"/>
-                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="top" secondItem="VT0-yr-7iN" secondAttribute="top" id="Bbb-a4-bhJ"/>
+                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="top" secondItem="VT0-yr-7iN" secondAttribute="top" constant="79" id="Bbb-a4-bhJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Iwo-9A-6eu" secondAttribute="bottom" id="Bm9-ZQ-F3e"/>
-                                    <constraint firstItem="htP-zX-4yL" firstAttribute="top" secondItem="VT0-yr-7iN" secondAttribute="top" id="Dls-GM-z2N"/>
+                                    <constraint firstItem="htP-zX-4yL" firstAttribute="top" secondItem="VT0-yr-7iN" secondAttribute="top" constant="79" id="Dls-GM-z2N"/>
                                     <constraint firstItem="w4Y-1D-J1c" firstAttribute="top" secondItem="aFz-ZC-erg" secondAttribute="top" id="Etf-iz-YxM"/>
-                                    <constraint firstItem="aFz-ZC-erg" firstAttribute="trailing" secondItem="htP-zX-4yL" secondAttribute="trailing" id="J1z-F2-1ym"/>
-                                    <constraint firstItem="w4Y-1D-J1c" firstAttribute="trailing" secondItem="VT0-yr-7iN" secondAttribute="trailing" id="Jbm-hD-aod"/>
-                                    <constraint firstItem="z8x-qf-Ew1" firstAttribute="trailing" secondItem="zkY-Uc-LLH" secondAttribute="trailing" id="KhP-Gh-ALw"/>
-                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="bottom" secondItem="VT0-yr-7iN" secondAttribute="bottom" id="Lbm-Jd-JB0"/>
+                                    <constraint firstItem="aFz-ZC-erg" firstAttribute="trailing" secondItem="htP-zX-4yL" secondAttribute="trailing" constant="-80" id="J1z-F2-1ym"/>
+                                    <constraint firstItem="w4Y-1D-J1c" firstAttribute="trailing" secondItem="VT0-yr-7iN" secondAttribute="trailing" constant="-160" id="Jbm-hD-aod"/>
+                                    <constraint firstItem="z8x-qf-Ew1" firstAttribute="trailing" secondItem="zkY-Uc-LLH" secondAttribute="trailing" constant="241" id="KhP-Gh-ALw"/>
+                                    <constraint firstItem="7V3-p2-DZ3" firstAttribute="bottom" secondItem="VT0-yr-7iN" secondAttribute="bottom" constant="79" id="Lbm-Jd-JB0"/>
                                     <constraint firstItem="z8x-qf-Ew1" firstAttribute="centerX" secondItem="Dv0-Av-se2" secondAttribute="centerX" id="LzL-Mw-5iu"/>
                                     <constraint firstItem="FNj-5u-mPR" firstAttribute="bottom" secondItem="w4Y-1D-J1c" secondAttribute="bottom" id="Mtu-PJ-OKx"/>
                                     <constraint firstAttribute="bottom" secondItem="aFz-ZC-erg" secondAttribute="bottom" constant="79" id="Pin-vD-EhY"/>
                                     <constraint firstItem="7V3-p2-DZ3" firstAttribute="trailing" secondItem="FNj-5u-mPR" secondAttribute="trailing" id="SBl-yo-lSw"/>
                                     <constraint firstItem="aFz-ZC-erg" firstAttribute="bottom" secondItem="w4Y-1D-J1c" secondAttribute="bottom" id="U6F-sS-sGn"/>
-                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="top" secondItem="FNj-5u-mPR" secondAttribute="top" id="Vyb-l4-eeL"/>
-                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="trailing" secondItem="Iwo-9A-6eu" secondAttribute="trailing" id="WrL-qb-mGf"/>
-                                    <constraint firstItem="htP-zX-4yL" firstAttribute="bottom" secondItem="VT0-yr-7iN" secondAttribute="bottom" id="aNy-vf-gFl"/>
+                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="top" secondItem="FNj-5u-mPR" secondAttribute="top" constant="79" id="Vyb-l4-eeL"/>
+                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="trailing" secondItem="Iwo-9A-6eu" secondAttribute="trailing" constant="-241" id="WrL-qb-mGf"/>
+                                    <constraint firstItem="htP-zX-4yL" firstAttribute="bottom" secondItem="VT0-yr-7iN" secondAttribute="bottom" constant="79" id="aNy-vf-gFl"/>
                                     <constraint firstItem="w4Y-1D-J1c" firstAttribute="leading" secondItem="aFz-ZC-erg" secondAttribute="trailing" id="ah3-SH-8j8"/>
                                     <constraint firstItem="7V3-p2-DZ3" firstAttribute="bottom" secondItem="Iwo-9A-6eu" secondAttribute="bottom" id="crF-Dh-x7y"/>
-                                    <constraint firstItem="w4Y-1D-J1c" firstAttribute="leading" secondItem="VT0-yr-7iN" secondAttribute="leading" id="eCG-Di-aJu"/>
+                                    <constraint firstItem="w4Y-1D-J1c" firstAttribute="leading" secondItem="VT0-yr-7iN" secondAttribute="leading" constant="-160" id="eCG-Di-aJu"/>
                                     <constraint firstItem="FNj-5u-mPR" firstAttribute="top" secondItem="w4Y-1D-J1c" secondAttribute="top" id="eLn-79-wxP"/>
-                                    <constraint firstAttribute="trailing" secondItem="zkY-Uc-LLH" secondAttribute="trailing" id="igb-7w-WAQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="zkY-Uc-LLH" secondAttribute="trailing" constant="240" id="igb-7w-WAQ"/>
                                     <constraint firstItem="htP-zX-4yL" firstAttribute="top" secondItem="z8x-qf-Ew1" secondAttribute="bottom" constant="80" id="mFI-ZP-tP2"/>
                                     <constraint firstItem="FNj-5u-mPR" firstAttribute="leading" secondItem="7V3-p2-DZ3" secondAttribute="leading" id="mK0-nc-VQp"/>
-                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="bottom" secondItem="FNj-5u-mPR" secondAttribute="bottom" id="n1Q-CP-rlH"/>
+                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="bottom" secondItem="FNj-5u-mPR" secondAttribute="bottom" constant="79" id="n1Q-CP-rlH"/>
                                     <constraint firstItem="z8x-qf-Ew1" firstAttribute="top" secondItem="Dv0-Av-se2" secondAttribute="top" id="nSy-pl-Nbd"/>
                                     <constraint firstItem="z8x-qf-Ew1" firstAttribute="leading" secondItem="Dv0-Av-se2" secondAttribute="leading" id="nnK-83-4jy"/>
                                     <constraint firstItem="FNj-5u-mPR" firstAttribute="leading" secondItem="w4Y-1D-J1c" secondAttribute="trailing" id="os1-DH-dsG"/>
-                                    <constraint firstItem="htP-zX-4yL" firstAttribute="leading" secondItem="aFz-ZC-erg" secondAttribute="leading" id="uMc-CL-WF8"/>
-                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="leading" secondItem="FNj-5u-mPR" secondAttribute="trailing" id="yNL-Qj-dZ0"/>
+                                    <constraint firstItem="htP-zX-4yL" firstAttribute="leading" secondItem="aFz-ZC-erg" secondAttribute="leading" constant="80" id="uMc-CL-WF8"/>
+                                    <constraint firstItem="zkY-Uc-LLH" firstAttribute="leading" secondItem="FNj-5u-mPR" secondAttribute="trailing" constant="-241" id="yNL-Qj-dZ0"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -573,7 +574,15 @@
     </scenes>
     <resources>
         <image name="longbridge" width="320" height="568"/>
+        <image name="mono" width="80" height="80"/>
+        <image name="noir" width="80" height="80"/>
+        <image name="normal" width="80" height="80"/>
+        <image name="process" width="80" height="80"/>
+        <image name="sepia" width="80" height="80"/>
         <image name="tab_bar_icons_photo_camp_camera_btn_bar_item" width="24" height="24"/>
+        <image name="tonal" width="80" height="80"/>
+        <image name="transfer" width="80" height="80"/>
+        <image name="zfade" width="80" height="80"/>
     </resources>
     <color key="tintColor" red="0.33183220559999999" green="0.86593495239999996" blue="0.32310868580000002" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
