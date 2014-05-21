@@ -9,7 +9,7 @@
         <a data-ng-repeat="post in posts" data-ng-href="#!/posts/{{post._id}}" class="list-group-item a-post">
             <small class="list-group-item-text">
                 {{post.created | date:'medium'}} / 
-                <span data-ng-hide="{{post.campaignObject.identifier}}">
+                <span data-ng-show="{{post.campaignObject.identifier}}">
                 	<strong>CampaignID: {{post.campaignObject.identifier}}</strong>
                 </span>
             </small><br/><br/>
