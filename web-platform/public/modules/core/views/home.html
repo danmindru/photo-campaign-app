@@ -1,5 +1,5 @@
 <section class="row-fluid home-fluid jumbotron" data-ng-controller="HomeController">
-  <h2>Welcome to the photo campaign web platform</h2><br/>
+  <!-- <h2>Welcome to the photo campaign web platform</h2><br/> -->
   <h3 data-ng-hide="authentication.user.campaignObject">Recent posts on all campaigns</h3>
   <h3 data-ng-show="authentication.user.campaignObject">Recent posts for the logged in user's campaign</h3>
   <hr/>
@@ -9,7 +9,7 @@
         <a data-ng-repeat="post in posts" data-ng-href="#!/posts/{{post._id}}" class="list-group-item a-post">
             <small class="list-group-item-text">
                 {{post.created | date:'medium'}} / 
-                <span data-ng-hide="{{post.campaignObject.identifier}}">
+                <span data-ng-show="{{post.campaignObject.identifier}}">
                 	<strong>CampaignID: {{post.campaignObject.identifier}}</strong>
                 </span>
             </small><br/><br/>
