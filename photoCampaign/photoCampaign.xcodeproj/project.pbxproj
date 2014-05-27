@@ -77,8 +77,8 @@
 		4C5AB3DC19254EFD00BF692D /* cameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cameraViewController.m; sourceTree = "<group>"; };
 		4C5AB3E119261C2300BF692D /* photoeditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = photoeditViewController.h; sourceTree = "<group>"; };
 		4C5AB3E219261C2300BF692D /* photoeditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = photoeditViewController.m; sourceTree = "<group>"; };
-		4C5AB3E41926353E00BF692D /* photopublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = photopublishViewController.h; path = ../photopublishViewController.h; sourceTree = "<group>"; };
-		4C5AB3E51926353E00BF692D /* photopublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = photopublishViewController.m; path = ../photopublishViewController.m; sourceTree = "<group>"; };
+		4C5AB3E41926353E00BF692D /* photopublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = photopublishViewController.h; sourceTree = "<group>"; };
+		4C5AB3E51926353E00BF692D /* photopublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = photopublishViewController.m; sourceTree = "<group>"; };
 		4C5BA81D19240C3200485315 /* accountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = accountViewController.h; sourceTree = "<group>"; };
 		4C5BA81E19240C3300485315 /* accountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = accountViewController.m; sourceTree = "<group>"; };
 		4C6CAE60191CFD7900E1DE48 /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
@@ -119,6 +119,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1FAF891934A02D009742FC /* Interface Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4C30251B19217C36003262B9 /* feedTableView.h */,
+				4C30251C19217C36003262B9 /* feedTableView.m */,
+				4C5AB3D81924F21600BF692D /* postTableViewCell.h */,
+				4C5AB3D91924F21600BF692D /* postTableViewCell.m */,
+				4C6CAE81191FCD2500E1DE48 /* accountTextField.h */,
+				4C6CAE82191FCD2600E1DE48 /* accountTextField.m */,
+				4C5BA81D19240C3200485315 /* accountViewController.h */,
+				4C5BA81E19240C3300485315 /* accountViewController.m */,
+				4C6CAE72191E763C00E1DE48 /* homeNavController.h */,
+				4C6CAE73191E763C00E1DE48 /* homeNavController.m */,
+				4C6CAE6F191E748A00E1DE48 /* homeViewController.h */,
+				4C6CAE70191E748A00E1DE48 /* homeViewController.m */,
+				4C4AE663191CF09A00F73121 /* loginViewController.h */,
+				4C4AE664191CF09A00F73121 /* loginViewController.m */,
+				4C5AB3DB19254EFD00BF692D /* cameraViewController.h */,
+				4C5AB3DC19254EFD00BF692D /* cameraViewController.m */,
+				4C5AB3E119261C2300BF692D /* photoeditViewController.h */,
+				4C5AB3E219261C2300BF692D /* photoeditViewController.m */,
+				4C5AB3E41926353E00BF692D /* photopublishViewController.h */,
+				4C5AB3E51926353E00BF692D /* photopublishViewController.m */,
+			);
+			name = "Interface Classes";
+			sourceTree = "<group>";
+		};
 		4C4AE626191CE2EF00F73121 = {
 			isa = PBXGroup;
 			children = (
@@ -158,26 +185,7 @@
 				4C4AE642191CE2F000F73121 /* AppDelegate.m */,
 				4C4AE644191CE2F000F73121 /* Images.xcassets */,
 				4C4AE639191CE2F000F73121 /* Supporting Files */,
-				4C30251B19217C36003262B9 /* feedTableView.h */,
-				4C30251C19217C36003262B9 /* feedTableView.m */,
-				4C5AB3D81924F21600BF692D /* postTableViewCell.h */,
-				4C5AB3D91924F21600BF692D /* postTableViewCell.m */,
-				4C6CAE81191FCD2500E1DE48 /* accountTextField.h */,
-				4C6CAE82191FCD2600E1DE48 /* accountTextField.m */,
-				4C5BA81D19240C3200485315 /* accountViewController.h */,
-				4C5BA81E19240C3300485315 /* accountViewController.m */,
-				4C6CAE72191E763C00E1DE48 /* homeNavController.h */,
-				4C6CAE73191E763C00E1DE48 /* homeNavController.m */,
-				4C6CAE6F191E748A00E1DE48 /* homeViewController.h */,
-				4C6CAE70191E748A00E1DE48 /* homeViewController.m */,
-				4C4AE663191CF09A00F73121 /* loginViewController.h */,
-				4C4AE664191CF09A00F73121 /* loginViewController.m */,
-				4C5AB3DB19254EFD00BF692D /* cameraViewController.h */,
-				4C5AB3DC19254EFD00BF692D /* cameraViewController.m */,
-				4C5AB3E119261C2300BF692D /* photoeditViewController.h */,
-				4C5AB3E219261C2300BF692D /* photoeditViewController.m */,
-				4C5AB3E41926353E00BF692D /* photopublishViewController.h */,
-				4C5AB3E51926353E00BF692D /* photopublishViewController.m */,
+				4C1FAF891934A02D009742FC /* Interface Classes */,
 				4C6CAE60191CFD7900E1DE48 /* user.h */,
 				4C6CAE61191CFD7900E1DE48 /* user.m */,
 				4C30251E19221268003262B9 /* post.h */,
